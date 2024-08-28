@@ -3,8 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Website with Enhanced Features</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Color Palette */
+        :root {
+            --dark-blue: #071952;
+            --medium-blue: #088395;
+            --light-blue: #37B7C3;
+            --off-white: #EBF4F6;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--off-white);
+            color: var(--dark-blue);
+        }
+
+        header {
+            background-color: var(--dark-blue);
+            color: var(--off-white);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--off-white);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-buttons button {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            border: none;
+            padding: 8px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .auth-buttons button:hover {
+            background-color: var(--medium-blue);
+            color: var(--off-white);
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--medium-blue);
+            color: var(--off-white);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .hero button {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: var(--medium-blue);
+            color: var(--off-white);
+        }
+
+        /* Features Section */
+        #features {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: var(--off-white);
+        }
+
+        .feature-box {
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--dark-blue);
+            color: var(--off-white);
+            transition: transform 0.3s;
+        }
+
+        .feature-box i {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .feature-box h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 16px;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--off-white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer form {
+            display: inline-block;
+            text-align: left;
+        }
+
+        footer input, footer textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        footer input[type="submit"] {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer input[type="submit"]:hover {
+            background-color: var(--medium-blue);
+            color: var(--off-white);
+        }
+
+        /* Scroll-to-Top Button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--medium-blue);
+            color: var(--off-white);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--light-blue);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--dark-blue);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="Blue 3D Abstract Letter S Logo.png" alt="TaskPro Logo" style="height: 50px; width: auto;">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to MyWebsite</h1>
+        <p>Your one-stop solution for everything tech!</p>
+        <button id="getStartedBtn">Get Started</button>
+    </section>
+
+    <section id="features">
+        <h2>Our Features</h2>
+        <div class="feature-box">
+            <i class="fas fa-cogs"></i>
+            <h4>Feature 1</h4>
+            <p>Experience seamless integration and efficiency with our cutting-edge tools.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-laptop-code"></i>
+            <h4>Feature 2</h4>
+            <p>Unlock the power of coding with our easy-to-use platform.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-chart-line"></i>
+            <h4>Progress Tracking</h4>
+            <p>Monitor your progress and stay on track.</p>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Contact Us</h3>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
+    </footer>
+
+    <div id="scrollToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+
+    <script>
+        // Navbar toggle for mobile view
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            alert('Thank you for your message!');
+            contactForm.reset();
+        });
+
+        // Smooth scroll for "Get Started" button
+        const getStartedBtn = document.getElementById('getStartedBtn');
+        getStartedBtn.addEventListener('click', () => {
+            document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
