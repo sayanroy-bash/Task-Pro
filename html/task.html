@@ -5,15 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Management and Prioritizer</title>
-  <link rel="stylesheet" href="../styles/task.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="/img/Designer.ico">
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-container">
-
+    
     </div>
   </nav>
   
@@ -24,7 +29,11 @@
   <main>
 
 <section class="left_Header">
-    <option value="Kanban View">Kanban View</option>
+
+  <ul>
+    
+  </ul>
+    <option value="Kanban View"></option>
    
    
 
@@ -73,28 +82,33 @@
         <!-- <label for="task-description">Task Description:</label> -->
         <textarea id="task-description" placeholder="Task Description :"></textarea>
         <!-- <label for="due-date">Due Date:</label> -->
-        <input type="date" id="due-date" placeholder="Due Date :" required>
-        <!-- <label for="importance">Importance:</label> -->
-        <select id="importance" aria-placeholder="Importance:">
-          <option value="Importance">Importance:</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
-        <!-- <label for="urgency">Urgency:</label> -->
-        <select id="urgency">
-            <option value="Urgency">Urgency:</option> 
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
-        <!-- <label for="status">Status:</label> -->
-        <select id="status">
-            <option value="Status">Status:</option>
-          <option value="pending">Pending</option>
-          <option value="inProgress">In Progress</option>
-          <option value="completed">Completed</option>
-        </select>
+       
+        <div class="filterBTN">
+          <input type="date" id="due-date" placeholder="Due Date :" required>
+          <!-- <label for="importance">Importance:</label> -->
+          <select id="importance" aria-placeholder="Importance:">
+            <option value="Importance">Importance:</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <!-- <label for="urgency">Urgency:</label> -->
+          <select id="urgency">
+              <option value="Urgency">Urgency:</option> 
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <!-- <label for="status">Status:</label> -->
+          <select id="status">
+              <option value="Status">Status:</option>
+            <option value="pending">Pending</option>
+            <option value="inProgress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+
+
         <button id="submit" type="submit">Add Task</button>
       </form>
 </dialog>
@@ -125,7 +139,7 @@
 
   </main>
 
-  <script src="../script/task.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
