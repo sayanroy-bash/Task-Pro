@@ -25,10 +25,13 @@ const filterStatus = document.getElementById('filter-status');
 const pendingTasksList = document.getElementById('pending-tasks-list');
 const inProgressTasksList = document.getElementById('in-progress-tasks-list');
 const completedTasksList = document.getElementById('completed-tasks-list');
-const userId = localStorage.getItem('loggedInUserId');
-const url = `http://localhost:3000/users/${userId}`;
+const userId = localStorage.getItem('authToken');
+const url = `https://array-archers-default-rtdb.firebaseio.com/tasks.json`;
+let data;
+let taskID;
 let tasks = [];
 let editIndex = -1;
+let task;
 
 if (!userId) {
     window.alert("User not logged in. Please log in first.");
@@ -58,8 +61,17 @@ const fetchTasks = async () => {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
         const user = await res.json();
-        tasks = user.tasks;
+        if(!user){
+            alert("No Tasks left")
+        }else{
+            data=Object.values(user);
+        taskID=Object.keys(user);
+        tasks=data.filter((ele)=>{
+            return ele.authToken===userId;
+        })
         renderTaskList();
+        }
+        
     } catch (error) {
         console.error("Error fetching tasks:", error);
     }
@@ -117,14 +129,15 @@ taskForm.addEventListener('submit', async (e) => {
     const urgency = document.getElementById('urgency').value;
     const status = document.getElementById('status').value;
 
-    const task = {
+    task = {
         name: taskName,
         description: taskDescription,
         dueDate: dueDate,
         importance: importance,
         urgency: urgency,
         status: status,
-        priority: calculatePriority(importance, urgency)
+        priority: calculatePriority(importance, urgency),
+        authToken:userId
     };
 
     if (editIndex === -1) {
@@ -140,13 +153,13 @@ taskForm.addEventListener('submit', async (e) => {
 
 const addTask = async (task) => {
     try {
-        tasks.push(task);
+        
         const res = await fetch(url, {
-            method: "PATCH",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ tasks })
+            body: JSON.stringify(task)
         });
 
         if (!res.ok) {
@@ -159,13 +172,13 @@ const addTask = async (task) => {
 
 const updateTask = async (task) => {
     try {
-        tasks[editIndex] = task;
-        const res = await fetch(url, {
+        let id=taskID[editIndex];
+        const res = await fetch(`https://array-archers-default-rtdb.firebaseio.com/tasks/${id}.json`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ tasks })
+            body: JSON.stringify(task)
         });
 
         if (!res.ok) {
@@ -178,13 +191,9 @@ const updateTask = async (task) => {
 
 const deleteTask = async (index) => {
     try {
-        tasks.splice(index, 1);
-        const res = await fetch(url, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ tasks })
+        let id=taskID[index];
+        const res = await fetch(`https://array-archers-default-rtdb.firebaseio.com/tasks/${id}.json`, {
+            method: "DELETE",
         });
 
         if (!res.ok) {
@@ -237,7 +246,9 @@ function renderTaskList() {
 }
 
 function editTask(index) {
+    event.preventDefault();
     const task = tasks[index];
+    favDialog.showModal();
     document.getElementById('task-name').value = task.name;
     document.getElementById('task-description').value = task.description;
     document.getElementById('due-date').value = task.dueDate;
@@ -281,7 +292,6 @@ const setupDragAndDrop = () => {
             const taskItem = document.querySelector('.task-item.dragging');
             if (taskItem) {
                 const index = parseInt(taskItem.getAttribute('data-index'));
-
                 // Mapping container ID to the correct status
                 const statusMapping = {
                     'pending-tasks': 'pending',
@@ -290,12 +300,13 @@ const setupDragAndDrop = () => {
                 };
 
                 const newStatus = statusMapping[container.id];
-
                 // Update task status
                 if (tasks[index]) {
                     tasks[index].status = newStatus;
-                    await updateTasks();
+                    editIndex=index;
+                    await updateTask(tasks[index]);
                     renderTaskList();  // Re-render task lists after status update
+                    editIndex=-1;
                 }
             }
         });

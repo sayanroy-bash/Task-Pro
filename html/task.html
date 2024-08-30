@@ -1,43 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management and Prioritizer</title>
+    <link rel="stylesheet" href="../styles/task.css" />
+    <link rel="icon" type="image/x-icon" href="/img/Designer.ico" />
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script> -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Management and Prioritizer</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="/img/Designer.ico">
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+  </head>
 
-<!-- Add Firebase products that you want to use -->
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container"></div>
+    </nav>
 
-</head>
+    <!-- ---------task manager----- -->
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-container">
-    
-    </div>
-  </nav>
-  
+    <main>
+      <section class="left_Header"></section>
 
-  <!-- ---------task manager----- -->
+      <ul></ul>
+      <option value="Kanban View"></option>
 
-
-  <main>
-
-<section class="left_Header">
-
-  <ul>
-    
-  </ul>
-    <option value="Kanban View"></option>
-   
-   
-
-     <div class="sort-filter-container">
+      <div class="sort-filter-container">
         <div>
           <label for="sort">Sort By:</label>
           <select id="sort" onchange="sortTasks()">
@@ -45,7 +34,7 @@
             <option value="priority">Priority</option>
           </select>
         </div>
-  
+
         <div>
           <label for="filter-status">Filter By:</label>
           <select id="filter-status" onchange="filterTasksByStatus()">
@@ -57,89 +46,84 @@
         </div>
       </div>
 
-
-
-
-  
-
       <div>
         <button id="generate-data">Generate Data</button>
       </div>
 
+      <section class="right_Header">
+        <div class="container">
+          <button id="showDialogBtn">Create Your Task</button>
 
-</section>
-<section class="right_Header">
+          <dialog id="favDialog">
+            <form id="task-form">
+              <!-- <label for="task-name">Task Name:</label> -->
+              <input
+                type="text"
+                id="task-name"
+                placeholder="Task Name:"
+                required
+              />
+              <!-- <label for="task-description">Task Description:</label> -->
+              <textarea
+                id="task-description"
+                placeholder="Task Description :"
+              ></textarea>
+              <!-- <label for="due-date">Due Date:</label> -->
 
+              <div class="filterBTN">
+                <input
+                  type="date"
+                  id="due-date"
+                  placeholder="Due Date :"
+                  required
+                />
+                <!-- <label for="importance">Importance:</label> -->
+                <select id="importance" aria-placeholder="Importance:">
+                  <option value="Importance">Importance:</option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+                <!-- <label for="urgency">Urgency:</label> -->
+                <select id="urgency">
+                  <option value="Urgency">Urgency:</option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+                <!-- <label for="status">Status:</label> -->
+                <select id="status">
+                  <option value="Status">Status:</option>
+                  <option value="pending">Pending</option>
+                  <option value="inProgress">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
 
-    <div class="container">
+              <button id="submit" type="submit">Add Task</button>
+            </form>
+          </dialog>
 
-        <button id="showDialogBtn">Create Your Task</button>
+          <!-- <h1>Task Management and Prioritizer</h1> -->
 
-<dialog id="favDialog">
-    <form id="task-form">
-        <!-- <label for="task-name">Task Name:</label> -->
-        <input type="text" id="task-name" placeholder="Task Name:" required>
-        <!-- <label for="task-description">Task Description:</label> -->
-        <textarea id="task-description" placeholder="Task Description :"></textarea>
-        <!-- <label for="due-date">Due Date:</label> -->
-       
-        <div class="filterBTN">
-          <input type="date" id="due-date" placeholder="Due Date :" required>
-          <!-- <label for="importance">Importance:</label> -->
-          <select id="importance" aria-placeholder="Importance:">
-            <option value="Importance">Importance:</option>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-          </select>
-          <!-- <label for="urgency">Urgency:</label> -->
-          <select id="urgency">
-              <option value="Urgency">Urgency:</option> 
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-          </select>
-          <!-- <label for="status">Status:</label> -->
-          <select id="status">
-              <option value="Status">Status:</option>
-            <option value="pending">Pending</option>
-            <option value="inProgress">In Progress</option>
-            <option value="completed">Completed</option>
-          </select>
+          <div class="clear-fix">
+            <div id="pending-tasks" class="task-container">
+              <h3>Pending Tasks</h3>
+              <ul id="pending-tasks-list"></ul>
+            </div>
+            <div id="in-progress-tasks" class="task-container">
+              <h3>In Progress Tasks</h3>
+              <ul id="in-progress-tasks-list"></ul>
+            </div>
+            <div id="completed-tasks" class="task-container">
+              <h3>Completed Tasks</h3>
+              <ul id="completed-tasks-list"></ul>
+            </div>
+          </div>
         </div>
+      </section>
+    </main>
 
-
-        <button id="submit" type="submit">Add Task</button>
-      </form>
-</dialog>
-
-        <!-- <h1>Task Management and Prioritizer</h1> -->
-
-    
-      
-          
-        <div class="clear-fix">
-          <div id="pending-tasks" class="task-container">
-            <h3>Pending Tasks</h3>
-            <ul id="pending-tasks-list"></ul>
-          </div>
-          <div id="in-progress-tasks" class="task-container">
-            <h3>In Progress Tasks</h3>
-            <ul id="in-progress-tasks-list"></ul>
-          </div>
-          <div id="completed-tasks" class="task-container">
-            <h3>Completed Tasks</h3>
-            <ul id="completed-tasks-list"></ul>
-          </div>
-        </div>
-
-      </div>
-
-</section>
-
-  </main>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="../script/task.js"></script>
+  </body>
 </html>
