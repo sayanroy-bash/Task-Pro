@@ -822,4 +822,100 @@ body .footer .content {
     font-size: 24px;
 }
 
+@media screen and (max-width: 767px) {
+    .footer .content {
+        padding: 0 1.5rem;
+    }
+
+    .footer .content .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .content span {
+        font-size: .813rem;
+    }
+
+    .footer__links {
+        flex-direction: column;
+        row-gap: 1.5rem;
+    }
+
+    .footer__socials {
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width: 567px) {
+    .footer .content .container {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3.5rem;
+    }
+}
+
+/* bubbles media query */
+
+/* General Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    .footer .content .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer__links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .footer__socials {
+        justify-content: center;
+    }
+}
+
+/* Further Adjustments for Very Small Screens */
+@media (max-width: 480px) {
+    .footer .content .container {
+        padding: 1rem;
+    }
+
+    .footer__logo {
+        width: 90px;
+    }
+
+    .footer__link {
+        font-size: 0.9rem;
+    }
+
+    .footer__copy {
+        font-size: 0.8rem;
+    }
+
+    .modal-content, .modal-content2 {
+        margin: 10% auto;
+        width: 90%;
+    }
+
+    .eachdiv {
+        min-width: 200px;
+    }
+
+    .imgbox img {
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    body .footer .bubbles .bubble {
+        width: var(--bubble-size-small, 2.5rem);
+        height: var(--bubble-size-small, 1.5rem);
+        left: var(--position-small, 50%);
+    }
+}
+
+
 
