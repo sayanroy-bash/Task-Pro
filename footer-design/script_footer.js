@@ -1,14 +1,17 @@
-// Get the contact modal and portfolio modal elements
+// Get the modal elements
 var contactModal = document.getElementById("contactModal");
 var portfolioModal = document.getElementById("portfolioModal");
+var teamModal = document.getElementById("teamModal");
 
-// Get the contact link and portfolio link elements
+// Get the link elements
 var contactLink = document.getElementById("contactLink");
 var portfolioLink = document.getElementById("portfolioLink");
+var teamLink = document.getElementById("teamLink");
 
-// Get the close button elements for both modals
+// Get the close button elements
 var contactClose = document.getElementsByClassName("close")[0];
 var portfolioClose = document.getElementsByClassName("close2")[0];
+var teamClose = document.getElementsByClassName("close3")[0];
 
 // When the user clicks on the contact link, open the contact modal
 contactLink.onclick = function(event) {
@@ -22,22 +25,34 @@ portfolioLink.onclick = function(event) {
     portfolioModal.style.display = "block";
 }
 
-// When the user clicks on the close button of the contact modal, close the contact modal
+// When the user clicks on the team link, open the team modal
+teamLink.onclick = function(event) {
+    event.preventDefault(); 
+    teamModal.style.display = "block";
+}
+
+// Close modals when the close button is clicked
 contactClose.onclick = function() {
     contactModal.style.display = "none";
 }
 
-// When the user clicks on the close button of the portfolio modal, close the portfolio modal
 portfolioClose.onclick = function() {
     portfolioModal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modals, close the open modal
+teamClose.onclick = function() {
+    teamModal.style.display = "none";
+}
+
+// Close modals when the user clicks outside of them
 window.onclick = function(event) {
     if (event.target == contactModal) {
         contactModal.style.display = "none";
     }
     if (event.target == portfolioModal) {
         portfolioModal.style.display = "none";
+    }
+    if (event.target == teamModal) {
+        teamModal.style.display = "none";
     }
 }
