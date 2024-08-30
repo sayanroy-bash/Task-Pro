@@ -11,21 +11,27 @@
     <div class="container">
       <nav id="landing-page-navbar">
         <div id="landing-page-logo">
-          <img src="./images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png" alt="taskpro-Logo" id="logo" />
+            <img src="./images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png" alt="taskpro-Logo" id="logo" />
+        </div>
+        <div id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
         <div id="landing-page-menu">
-          <ul>
-            <li class="menu"><a href="#">Home</a></li>
-            <li class="menu"><a href="#">My Tasks</a></li>
-            <li class="menu"><a href="#">Activities</a></li>
-            <li class="menu"><a href="#">About</a></li>
-            <div class="login-signupBtns">
-              <button id="loginBtn" class="btn">Login</button>
-              <button id="signupBtn" class="btn">Signup it's Free</button>
-            </div>
-          </ul>
+            <ul>
+                <li class="menu"><a href="#">Home</a></li>
+                <li class="menu"><a href="#">My Tasks</a></li>
+                <li class="menu"><a href="#">Activities</a></li>
+                <li class="menu"><a href="#">About</a></li>
+                <div class="login-signupBtns">
+                    <button id="loginBtn" class="btn">Login</button>
+                    <button id="signupBtn" class="btn">Signup</button>
+                </div>
+            </ul>
         </div>
-      </nav>
+    </nav>
+    
       <div id="hero-container" >
         <h2
           style="
@@ -35,7 +41,7 @@
               rgb(5, 125, 230)
             );
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;margin-top:10rem;
+            -webkit-text-fill-color: transparent;margin-top:10rem;margin-left:5rem;
           "
         >
           Find Your Wonderful
@@ -57,10 +63,10 @@
           Simplify life for both you and your team. The world’s #1 task manager
           and to-do list app.
         </p>
-        <button class="btn">Get Started</button>
+        <button id="getStartedBtn" class="btn" >Get Started</button>
       </div>
       <div id="task-image-container" class="scroll-section">
-        <img src="./images/taskImage.png" alt="" id="taskImage" />
+        <img src="./images/taskImage.jpg" alt="" id="taskImage" />
       </div>
       <div id="brand-container" class="scroll-section">
         <p style="text-align:center;margin-right:2rem;">85% of Fortune 100 companies choose TaskPro</p>
@@ -137,10 +143,9 @@
             <div id="departments-content">
                 <h2 id="department-title">Operationalize goal</h2>
                 <ul id="department-list">
-                    <li>✔ Connect work to company goals
-                        </li>
-                    <li>✔ Automate workflows across departments</li>
-                    <li>✔ Report on progress and address bottlenecks</li>
+                    <li>Connect work to company goals</li> 
+                    <li> Automate workflows across departments</li>
+                    <li> Report on progress and address bottlenecks</li>
                 </ul>
             </div>
         </div>
@@ -152,7 +157,7 @@
 
       <div class="section">
         <div class="left-image">
-          <img src="images/img/todo-1.jpg" alt="Image 1" class="responsive-image" />
+          <img src="./images/img/todo-1.jpg" alt="Image 1" class="responsive-image" />
         </div>
         <div class="right-text">
           <h2>Organize Tasks and Projects Seamlessly</h2>
@@ -160,7 +165,7 @@
             Our platform helps you create, assign, and track tasks efficiently,
             ensuring all projects are completed on time...
           </p>
-          <ul>
+          <ul class="section-content">
             <li>Create tasks with deadlines...</li>
             <li>Assign tasks to team members...</li>
             <li>Track progress and productivity...</li>
@@ -176,14 +181,14 @@
             Facilitate team communication and collaboration with our integrated
             messaging and file-sharing features.
           </p>
-          <ul>
+          <ul class="section-content">
             <li>Integrated chat and notifications...</li>
             <li>Share files and resources...</li>
             <li>Comment on tasks and projects...</li>
           </ul>
         </div>
         <div class="right-image">
-          <img src="images/img/todo-2.webp" alt="Image 2" class="responsive-image" />
+          <img src="./images/img/todo-2.jpg" alt="Image 2" class="responsive-image" />
         </div>
       </div>
 
@@ -193,6 +198,8 @@
         <h1>Start Managing Your Tasks Today</h1>
         <button>Get Started</button>
       </div>
+
+
 
       <!-- Second div with three cards -->
       <div class="card-grid">
@@ -364,16 +371,14 @@
 
       loginBtn.addEventListener("click", function (event) {
         event.preventDefault();
-        window.location.href = "./login&sign_up/index.html";
+        window.location.href = "./Array-Archers_023/login&sign_up/index.html";
       });
 
       signupBtn.addEventListener("click", function (event) {
         event.preventDefault();
-        window.location.href = "./login&sign_up/index.html";
+        window.location.href = "./Array-Archers_023/login&sign_up/index.html";
       });
 
-
-      // script.js
 
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('.scroll-section');
@@ -468,6 +473,13 @@ document.querySelectorAll('.deptBtn').forEach(button => {
     });
 });
 
+
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const landingPageMenu = document.getElementById('landing-page-menu');
+
+hamburgerMenu.addEventListener('click', () => {
+    landingPageMenu.classList.toggle('active');
+});
 
     </script>
   </body>
