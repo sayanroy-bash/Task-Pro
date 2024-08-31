@@ -223,15 +223,17 @@ function renderTaskList() {
         taskItem.setAttribute('draggable', 'true');
         taskItem.setAttribute('data-index', index);
         taskItem.innerHTML = `
-            <div>
+            <div class="adi">
+            <div class="aditya-1">
                 <strong>${task.name}</strong>
                 <span>${task.description}</span>
                 <br>
-                <small>Due: ${task.dueDate} | Importance: ${task.importance} | Urgency: ${task.urgency}</small>
+                <small>Due: ${task.dueDate}  Importance: ${task.importance}  Urgency: ${task.urgency}</small>
             </div>
             <div>
                 <button class="edit-btn" onclick="editTask(${index})">Edit</button>
                 <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
+            </div>
             </div>
         `;
 
