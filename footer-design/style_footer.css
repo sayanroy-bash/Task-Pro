@@ -224,8 +224,10 @@ body .footer .content {
 /* Close button */
 .close2 {
     color: #777777;
+   
     float: right;
     font-size: 48px;
+    
     font-weight: bold;
     cursor: pointer;
     position: absolute; /* Ensure the button is positioned relative to the modal content */
@@ -916,6 +918,217 @@ body .footer .content {
         left: var(--position-small, 50%);
     }
 }
+
+
+/* services modal */
+
+/* services modal */
+
+/* Modal Styling */
+.modal4 {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content4 {
+    background-color: #EBF4F6;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: scroll;
+}
+
+/* Close Button Styling */
+.close4 {
+    color: #777777;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1100;
+}
+
+.close4:hover,
+.close4:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* service css */
+
+section {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+/* added heading code */
+.section-heading {
+    color: #071952;
+}
+
+
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .column {
+    width: 100%;
+    padding: 0 1em 1em 1em;
+    text-align: center;
+  }
+  .card2 {
+    width: 100%;
+    height: 100%;
+    padding: 2em 1.5em;
+    background: linear-gradient(#ffffff 50%, #2c7bfe 50%);
+    background-size: 100% 200%;
+    background-position: 0 2.5%;
+    border-radius: 5px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f194c;
+    margin: 1em 0;
+  }
+  p {
+    color: #575a7b;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+  }
+  .icon-wrapper {
+    background-color: #2c7bfe;
+    position: relative;
+    margin: auto;
+    font-size: 30px;
+    height: 2.5em;
+    width: 2.5em;
+    color: #ffffff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: 0.5s;
+  }
+  .card2:hover {
+    background-position: 0 100%;
+  }
+  .card2:hover .icon-wrapper {
+    background-color: #ffffff;
+    color: #2c7bfe;
+  }
+  .card2:hover h3 {
+    color: #ffffff;
+  }
+  .card2:hover p {
+    color: #f0f0f0;
+  }
+  @media screen and (min-width: 768px) {
+    section {
+      padding: 0 2em;
+    }
+    .column {
+      flex: 0 50%;
+      max-width: 50%;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    section {
+      padding: 1em 3em;
+    }
+    .column {
+      flex: 0 0 33.33%;
+      max-width: 33.33%;
+    }
+  }
+/* General styling for the services section */
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns by default */
+    grid-gap: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Service item styling */
+.services .service-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjust the layout for medium screens (tablets) */
+@media (max-width: 1024px) {
+    .services {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+        grid-gap: 1rem;
+    }
+
+    .services .service-item {
+        padding: 1.5rem; /* Reduce padding */
+    }
+}
+
+/* Adjust the layout for small screens (mobile) */
+@media (max-width: 768px) {
+    .services {
+        grid-template-columns: 1fr; /* One column on mobile */
+        grid-gap: 1rem;
+    }
+
+    .services .service-item {
+        padding: 1rem; /* Further reduce padding */
+    }
+}
+
+/* Further adjustments for very small screens (mobile) */
+@media (max-width: 480px) {
+    .services {
+        padding: 1rem; /* Reduce overall padding */
+    }
+
+    .services .service-item {
+        padding: 0.8rem; /* Reduce service item padding */
+    }
+
+    .services .service-item h3 {
+        font-size: 1.2rem; /* Adjust heading size */
+    }
+
+    .services .service-item p {
+        font-size: 0.9rem; /* Adjust paragraph font size */
+    }
+}
+
+
 
 
 
