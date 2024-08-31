@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Array-Archers_023/css/tableView.css">
+    <link rel="stylesheet" href="../styles/tableView.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -13,11 +14,45 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
+
+  <nav>
+
+    <div class="container1">
+      <div class="image">
+        <img src="../images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png" alt="taskpro-Logo" id="logo" />
+    </div>
+    <div id="hamburger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+
+    <div id="landing-page-menu">
+      <ul>
+          <li class="menu"><a href="#">Home</a></li>
+          <li class="menu"><a href="#">My Tasks</a></li>
+          <li class="menu"><a href="#">Activities</a></li>
+          <li class="menu"><a href="#">About</a></li>
+          <div class="login-signupBtns">
+              <button id="loginBtn" class="btn">Login</button>
+              <button id="signupBtn" class="btn">Signup</button>
+          </div>
+      </ul>
+  </div>
+
+
+    </div>
+
+  </nav>
+
+ 
+  
     <div id="container">
         <div id="merged-sidebar-tableview-container">
             <div id="sidebar-container">
                 <div class="logo-user-container">
                     <p style="margin-top:1rem;padding-left:1rem">TaskPro</p>
+                    
                     <i class="fa-solid fa-user" id="user"></i>
                 </div>
                 <input type="text" id="search-bar" placeholder="Search Here...">
@@ -38,84 +73,133 @@
                         <span class="material-symbols-outlined" id="view-icon">
                             visibility
                         </span>
-                        <button class="dropbtn">Views
-                            
-                        </button>
+                        <button class="dropbtn">Views</button>
                         <div class="dropdown-content">
-                            <a href="./tableView.html">Table View</a>
-                            <a href="#">Board View</a>
-                            <a href="#">Calendar View</a>
-                            <a href="#">Graph View</a>
+
+                          
+                            <span class="material-symbols-outlined">
+                              table
+                              </span><a href="./tableView.html">Table View</a>
+                         
+                          
+                          
+                              <span class="material-symbols-outlined">
+                                space_dashboard
+                                </span>
+                                <a href="#">Board View</a>
+                           
+                           
+                              <span class="material-symbols-outlined">
+                                calendar_month
+                                </span>
+                                <a href="#">Calendar View</a>
+                          
+                            
+                              <span class="material-symbols-outlined">
+                                monitoring
+                                </span>
+                                <a href="#">Graph View</a>
+                          
+                           
+                            
+                            
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="table-view-container">
-                <h2>Task Management Table</h2>
+            
 
+          <dialog id="favDialog">
+            <form id="task-form">
+              <h1 >CREATE  TASK</h1>
+              <label for="task-name">Task Name:</label>
+              <input
+                type="text"
+                id="task-name"
+                placeholder="Task Name:"
+                required
+              />
+              <label for="task-description">Task Description:</label>
+              <textarea
+                id="task-description"
+                placeholder="Task Description :"
+              ></textarea>
+              <label for="due-date">Due Date:</label>
+
+              <div class="filterBTN">
+                <input
+                  type="date"
+                  id="due-date"
+                  placeholder="Due Date :"
+                  required
+                />
+                <label for="importance">Importance:</label>
+                <select id="importance" aria-placeholder="Importance:">
+                  <option value="Importance">Importance:</option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+
+                <label for="urgency">Urgency:</label>
+                <select id="urgency">
+                  <option value="Urgency">Urgency:</option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+
+                <label for="status">Status:</label>
+                <select id="status">
+                  <option value="Status">Status:</option>
+                  <option value="pending">Pending</option>
+                  <option value="inProgress">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+
+              <button id="submit" type="submit">Add Task</button>
+            </form>
+          </dialog>
+            <div id="table-view-container">
+                <div id="merged-create-heading">
+
+                  <h2>Task Management Table</h2>
+                  <button id="showDialogBtn"><span class="material-symbols-outlined">
+                    add
+                    </span>Create Your Task</button>
+                    <div id="hamburger-menu">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+
+                </div>
                 <table>
                    
-                        <tr>
-                            <th>Sr. No</th>
-                            <th>Task Name</th>
-                            <th>Assignee</th>
-                            <th>Status</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Priority</th>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Sr. No</th>
+                                <th>Task Name</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Due Date</th>
+                                <th>Priority</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
                     
                     
-                        <tr>
-                            <td>1</td>
-                            <td>Design UI</td>
-                            <td>Ashita</td>
-                            <td>In Progress</td>
-                            <td>2024-08-25</td>
-                            <td>2024-09-01</td>
-                            <td>High</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Develop Backend</td>
-                            <td>Sayan</td>
-                            <td>Not Started</td>
-                            <td>2024-08-26</td>
-                            <td>2024-09-05</td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Developer</td>
-                            <td>Vishnu</td>
-                            <td>Not Started</td>
-                            <td>2024-09-02</td>
-                            <td>2024-09-10</td>
-                            <td>Low</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Data Analysis</td>
-                            <td>Aditya</td>
-                            <td>Completed</td>
-                            <td>2024-09-02</td>
-                            <td>2024-09-10</td>
-                            <td>High</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Developer</td>
-                            <td>Prakash</td>
-                            <td>Not Started</td>
-                            <td>2024-09-02</td>
-                            <td>2024-09-10</td>
-                            <td>Low</td>
-                        </tr>
-                    
+                        <tbody>
+                            
+                        
+                        </tbody>
                 </table>
             </div>
         </div>
     </div>
-
+    <script src="../script/tableView.js"></script>
 </body>
 </html>
