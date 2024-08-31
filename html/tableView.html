@@ -52,6 +52,7 @@
             <div id="sidebar-container">
                 <div class="logo-user-container">
                     <p style="margin-top:1rem;padding-left:1rem">TaskPro</p>
+                    
                     <i class="fa-solid fa-user" id="user"></i>
                 </div>
                 <input type="text" id="search-bar" placeholder="Search Here...">
@@ -74,10 +75,35 @@
                         </span>
                         <button class="dropbtn">Views</button>
                         <div class="dropdown-content">
-                            <a href="./tableView.html">Table View</a>
-                            <a href="./task.html">Board View</a>
-                            <a href="./calender.html">Calendar View</a>
-                            <a href="./graph.html">Graph View</a>
+
+                          
+                            <span class="material-symbols-outlined">
+                              table
+                              </span><a href="./tableView.html">Table View</a>
+                         
+                          
+                          
+                              <span class="material-symbols-outlined">
+                                space_dashboard
+                                </span>
+                                <a href="#">Board View</a>
+                           
+                           
+                              <span class="material-symbols-outlined">
+                                calendar_month
+                                </span>
+                                <a href="#">Calendar View</a>
+                          
+                            
+                              <span class="material-symbols-outlined">
+                                monitoring
+                                </span>
+                                <a href="#">Graph View</a>
+                          
+                           
+                            
+                            
+
                         </div>
                     </div>
                 </div>
@@ -138,8 +164,17 @@
           </dialog>
             <div id="table-view-container">
                 <div id="merged-create-heading">
-                  <!-- <h2>Task Management Table</h2> -->
-                  <button id="showDialogBtn"><span class="material-symbols-outlined">add</span>Create Your Task</button>
+
+                  <h2>Task Management Table</h2>
+                  <button id="showDialogBtn"><span class="material-symbols-outlined">
+                    add
+                    </span>Create Your Task</button>
+                    <div id="hamburger-menu">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+
                 </div>
                 <table>
                    

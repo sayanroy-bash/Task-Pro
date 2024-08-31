@@ -56,9 +56,11 @@ taskForm.addEventListener('submit', async (e) => {
     const taskName = document.getElementById('task-name').value;
     taskName.id="taskName"
     const taskDescription = document.getElementById('task-description').value;
-     taskName.id="taskName"
-    const dueDate = document.getElementById('due-date').value;
+
     taskDescription.id="taskDescription"
+    const dueDate = document.getElementById('due-date').value;
+    dueDate.id="dueDate"
+
     const importance = document.getElementById('importance').value;
     importance.id="importance"
     const urgency = document.getElementById('urgency').value;
@@ -209,3 +211,16 @@ showDialogBtn.addEventListener('click', () => favDialog.showModal());
 closeSubmit.addEventListener("click", () => {
     favDialog.close();
   });
+
+
+  let hamburger=document.getElementById('hamburger-menu')
+  
+  let sidebar= document.getElementById('sidebar-container')
+
+  hamburger.addEventListener('click', function(event) {
+    event.preventDefault()
+    
+    sidebar.style.display="block"
+    sidebar.style.width="15%"
+    sidebar.classList.toggle('active');
+});
