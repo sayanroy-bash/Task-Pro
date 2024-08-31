@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Status Bar Graph</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -13,10 +13,26 @@
 
     <link rel="stylesheet" href="../styles/graph.css">
     <style>
-       
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      #chart-container {
+        width: 60%;
+        max-width: 600px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="chart-container">
+      <canvas id="taskChart"></canvas>
+    </div>
+
 
 
     <nav>
@@ -107,31 +123,94 @@
    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const todo = 5;       // Hardcoded value for 'todo'
-        const pending = 3;    // Hardcoded value for 'pending'
-        const done = 10;       // Hardcoded value for 'done'
+    const taskForm = document.getElementById("task-form");
+const generateDataBtn = document.getElementById("generate-data");
+const filterStatus = document.getElementById("filter-status");
+const pendingTasksList = document.getElementById("pending-tasks-list");
+const inProgressTasksList = document.getElementById("in-progress-tasks-list");
+const completedTasksList = document.getElementById("completed-tasks-list");
+const userId = localStorage.getItem("authToken");
+const url = `https://array-archers-default-rtdb.firebaseio.com/tasks.json`;
 
-        const ctx = document.getElementById('taskChart').getContext('2d');
-        const taskChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['ToDo', 'Pending', 'Done'],
-                datasets: [{
-                    label: 'Tasks',
-                    data: [todo, pending, done],
-                    backgroundColor: ['#f39c12', '#e67e22', '#27ae60'],
-                    borderColor: ['#e67e22', '#d35400', '#2ecc71'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+let data;
+let taskID;
+let tasks = [];
+let editIndex = -1;
+let task;
+let todo; // Value for 'todo'
+let pending; // Value for 'pending'
+let done; // Value for 'done'
+
+if (!userId) {
+  window.alert("User not logged in. Please log in first.");
+  window.location.href = "login.html";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (userId) {
+    fetchTasks();
+  }
+});
+
+const fetchTasks = async () => {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+    const user = await res.json();
+    if (!user) {
+      alert("No Tasks left");
+    } else {
+      data = Object.values(user);
+      taskID = Object.keys(user);
+      tasks = data.filter((ele) => {
+        return ele.authToken === userId;
+      });
+      renderTaskList();
+    }
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+  }
+};
+
+function renderTaskList() {
+  todo = tasks.filter((ele) => {
+    return ele.status === "inProgress";
+  }).length;
+  pending = tasks.filter((ele) => {
+    return ele.status === "pending";
+  }).length;
+  done = tasks.filter((ele) => {
+    return ele.status === "completed";
+  }).length;
+
+  // Initialize the chart after the todo, pending, and done values are set
+  const ctx = document.getElementById("taskChart").getContext("2d");
+  const taskChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["ToDo", "Pending", "Done"],
+      datasets: [
+        {
+          label: "Tasks",
+          data: [todo, pending, done],
+          backgroundColor: ["#f39c12", "#e67e22", "#27ae60"],
+          borderColor: ["#e67e22", "#d35400", "#2ecc71"],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}
+
     </script>
-</body>
+  </body>
 </html>
