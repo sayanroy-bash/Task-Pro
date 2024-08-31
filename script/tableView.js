@@ -12,17 +12,17 @@ let tasks = [];
 let editIndex = -1;
 let task;
 
+
 if (!userId) {
     window.alert("User not logged in. Please log in first.");
     window.location.href = "login.html";
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     if (userId) {
         fetchTasks();
     }
 });
-
 
 const fetchTasks = async () => {
     try {

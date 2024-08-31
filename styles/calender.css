@@ -136,5 +136,7 @@ color: #ccc;
 color: #fff;
 background-color: #91c1f1b4;
 }
-
+.tasks{
+    display: grid;
+}
 
