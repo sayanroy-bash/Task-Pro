@@ -933,7 +933,7 @@ body .footer .content {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -944,6 +944,7 @@ body .footer .content {
     border-radius: 10px;
     width: 90%;
     max-width: 1000px;
+    height: auto;
     text-align: left;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
@@ -1061,7 +1062,71 @@ section {
       max-width: 33.33%;
     }
   }
+/* General styling for the services section */
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns by default */
+    grid-gap: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+}
 
+/* Service item styling */
+.services .service-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjust the layout for medium screens (tablets) */
+@media (max-width: 1024px) {
+    .services {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+        grid-gap: 1rem;
+    }
+
+    .services .service-item {
+        padding: 1.5rem; /* Reduce padding */
+    }
+}
+
+/* Adjust the layout for small screens (mobile) */
+@media (max-width: 768px) {
+    .services {
+        grid-template-columns: 1fr; /* One column on mobile */
+        grid-gap: 1rem;
+    }
+
+    .services .service-item {
+        padding: 1rem; /* Further reduce padding */
+    }
+}
+
+/* Further adjustments for very small screens (mobile) */
+@media (max-width: 480px) {
+    .services {
+        padding: 1rem; /* Reduce overall padding */
+    }
+
+    .services .service-item {
+        padding: 0.8rem; /* Reduce service item padding */
+    }
+
+    .services .service-item h3 {
+        font-size: 1.2rem; /* Adjust heading size */
+    }
+
+    .services .service-item p {
+        font-size: 0.9rem; /* Adjust paragraph font size */
+    }
+}
 
 
 
