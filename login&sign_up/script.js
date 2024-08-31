@@ -20,6 +20,26 @@ function signup(){
     let password = document.querySelector("#password").value;
     console.log(username,email,password)
 
+    const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+  displayName:username,
+  email:email,
+  password:password
+});
+
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+fetch("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBe_6IW2Y0TdrTtA4WvpVyaMlxl5EuRKO8", requestOptions)
+  .then((response) => response.json())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
 }
 
 document.querySelector(".sign-in-form")
@@ -31,6 +51,29 @@ function login(){
     let password = document.querySelector("#password1").value;
     console.log(username,password)
 
+
+    const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+  email:username,
+  password:password
+});
+
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBe_6IW2Y0TdrTtA4WvpVyaMlxl5EuRKO8", requestOptions)
+  .then((response) => response.json())
+  .then((result) => {
+    localStorage.setItem("authToken",result.idToken);
+    console.log(result.idToken);
+  })
+  .catch((error) => console.error(error));
 }
 
 

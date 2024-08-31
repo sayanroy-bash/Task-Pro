@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Status Bar Graph</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #chart-container {
+            width: 60%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart-container">
+        <canvas id="taskChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const todo = 5;       // Hardcoded value for 'todo'
+        const pending = 3;    // Hardcoded value for 'pending'
+        const done = 10;       // Hardcoded value for 'done'
+
+        const ctx = document.getElementById('taskChart').getContext('2d');
+        const taskChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['ToDo', 'Pending', 'Done'],
+                datasets: [{
+                    label: 'Tasks',
+                    data: [todo, pending, done],
+                    backgroundColor: ['#f39c12', '#e67e22', '#27ae60'],
+                    borderColor: ['#e67e22', '#d35400', '#2ecc71'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

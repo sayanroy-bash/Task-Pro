@@ -1,0 +1,921 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul li {
+    list-style: none;
+    color: #fff;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr 10rem auto;
+    grid-template-areas: "main" "." "footer";
+    overflow-x: hidden;
+    background: #F5F7FA;
+    min-height: 100vh;
+    font-family: "Open Sans", sans-serif;
+}
+
+body .footer {
+    z-index: 1;
+    --footer-background: rgb(91, 73, 255);
+    display: grid;
+    position: relative;
+    grid-area: footer;
+    min-height: 12rem;
+}
+
+body .footer .bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    background: var(--footer-background);
+    filter: url("#blob");
+}
+
+body .footer .bubbles .bubble {
+    position: absolute;
+    left: var(--position, 50%);
+    background: var(--footer-background);
+    border-radius: 100%;
+    -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+    animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+    transform: translate(-50%, 100%);
+}
+
+body .footer .content {
+    padding: 6rem 1rem 2rem;
+    background: var(--footer-background);
+    z-index: 2;
+}
+
+.footer .content .container {
+    max-width: 768px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+    color: #fff;
+}
+/* added code */
+
+
+.footer__logo {
+    width: 110px; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    margin-right: 10px; /* Space between the logo and text */
+}
+
+.footer__subtitle {
+    font-size: 26px; /* Slightly larger font size for better readability */
+    color: #ffffff; /* Text color */
+    line-height: 1.6; /* Increase line height for better spacing */
+    font-family: Arial, sans-serif;
+    text-align: justify; /* Justified alignment to create even text edges */
+    margin-top: 10px; /* Add some space above to separate from other elements */
+}
+
+
+
+
+.content h2 {
+    margin-bottom: .25rem;
+    font-size: 2.25rem;
+}
+
+.content span {
+    font-size: .900rem;
+}
+
+.footer__links {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    transition: all 150ms ease-out;
+    justify-content: center;
+}
+
+.footer__links .footer__link {
+    transition: all 150ms ease-out;
+    display: inline-block;
+}
+
+.footer__link:hover:after {
+    width: 100%;
+}
+
+.footer__link:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 2px;
+    width: 0px;
+    background-color: #fff;
+    transition: width .25s ease-out;
+}
+
+/* modal div css */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Ensures the modal isn't too wide */
+    text-align: center;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* colors contact */
+#contact_h2{
+    color: #071952;
+}
+
+#contact_p{
+    color: #071952;
+}
+
+/* portfolio modal */
+
+/* The Modal (background) */
+.modal2 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content2 {
+    background-color: #fefefe;
+    margin: 5% auto; /* Centered modal */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Could be more or less, depending on screen size */
+    max-width: 1000px; /* Ensures the modal isn't too wide */
+    text-align: left; /* Aligns content to the left */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Ensure relative positioning for the close button */
+}
+
+/* Close button */
+.close2 {
+    color: #777777;
+    float: right;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; /* Ensure the button is positioned relative to the modal content */
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    z-index: 1100; /* Higher z-index to stay above other content */
+}
+
+.close2:hover,
+.close2:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* divs for portfolio*/
+.outerdiv {
+  
+    background: #37B7C3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .innerdiv {
+    transform: scale(0.8); /* Further reduce the scale */
+    margin: 1rem;
+    display: grid;
+    grid-gap: 1rem; /* Reduce the gap between grid items */
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(4, auto); /* Adjusted to auto width */
+  }
+  
+  .eachdiv {
+    padding: 0.5rem 0.8rem; /* Adjusted padding */
+    border-radius: 0.8rem;
+    box-shadow: 5px 5px 20px rgba(109, 109, 109, 0.4);
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .eachdiv:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 30px rgba(109, 109, 109, 0.5);
+  }
+  
+  .div1 {
+    background: #733FC8;
+    grid-column: span 2; /* Span across two columns */
+    grid-row: 1; /* Span across one row */
+    background-image: url(https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position-x: 15rem; /* Adjusted position */ 
+  }
+  
+  .div2 {
+    background: #49556B;
+    grid-column: 3; /* Grid column position */
+    grid-row: 1; /* Grid row position */
+  }
+  
+  .div3 {
+    background: rgb(92, 76, 195);
+    grid-column: 4; /* Grid column position */
+    grid-row: span 2; /* Span across two rows */
+    color: black;
+  }
+  
+  .div4 {
+    background: white;
+    grid-column: 1; /* Grid column position */
+    grid-row: 2; /* Grid row position */
+    color: black;
+  }
+  
+  .div5 {
+    background: #18202D;
+    grid-column: span 2; /* Span across two columns */
+    grid-row: 2; /* Grid row position */
+  }
+  
+  .userdetails {
+    display: flex;
+    align-items: center; /* Align items in flex container */
+  }
+  
+  .imgbox {
+    margin-right: 0.3rem; /* Adjusted margin */
+  }
+  
+  .imgbox img {
+    border-radius: 50%;
+    width: 1.5rem; /* Reduced image size */
+    border: 2px solid #cec5c5;
+  }
+  
+  .detbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .detbox p {
+    margin: 0;
+    font-size: 150px;
+    font-family: "Lora", serif;
+  }
+  
+  .detbox .name {
+    color: hsl(0, 0%, 81%);
+    font-size: 0.9rem;
+    /* Adjusted font size */
+    margin-bottom: 0.1rem;
+    font-weight: 600;
+  }
+  
+  .detbox .designation {
+    color: hsl(0, 0%, 81%);
+    opacity: 50%;
+    font-size: 0.8rem;
+    /* Adjusted font size */
+  }
+  
+  .review p {
+    font-size: 0.9rem;
+    /* Adjusted font size */
+    color: #F3DEFF;
+    font-weight: 500;
+    opacity: 50%;
+    line-height: 1.5;
+  }
+  
+  .detbox .name.dark {
+    color: #49505A;
+  }
+  
+  .detbox .designation.dark {
+    color: #49505A;
+  }
+  
+  .review h4 {
+    font-size: 1rem; /* Adjusted font size */
+    color: #F3DEFF;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.5rem; /* Reduced margin */
+  }
+  
+  .review.dark h4 {
+    color: #4B5258;
+  }
+  
+  
+  
+  .review.dark p {
+    color: #0e0e0e;
+  }
+  
+  .attribution {
+    font-size: 1rem;
+    line-height: 1.5;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: right;
+  }
+  
+  .attribution a {
+    text-decoration: none;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .innerdiv {
+        transform: scale(0.6); 
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .innerdiv {
+        transform: scale(0.5); 
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .div1 {
+        background-position-x: 8rem; 
+    }
+    .innerdiv {
+        display: flex;
+        flex-direction: column;
+        transform: scale(1);
+        margin: 1rem;
+        margin-bottom: 5rem;
+    }
+    .attribution {
+        position: relative;
+    }
+  }
+  /* added heding */
+  #testimonial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #152b71;
+    padding-top: 20px;
+  }
+
+  /* modal media queries */
+
+ /* For Modal (background) */
+
+ .modal, .modal2 {
+    display: none;
+}
+ 
+/* Small devices (phones, 600px and up) */
+@media (max-width: 600px) {
+    .modal-content, .modal-content2 {
+        width: 90%;
+        padding: 15px;
+        padding-right: 10px;
+        margin: 10% auto;
+    }
+    
+    .close, .close2 {
+        font-size: 24px;
+    }
+
+    .modal-content h2, .modal-content2 h1 {
+        font-size: 1.5rem;
+    }
+
+    .modal-content p, .modal-content2 p {
+        font-size: 0.9rem;
+    }
+
+    .userdetails .imgbox img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .review p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .modal-content, .modal-content2 {
+        width: 80%;
+        padding: 20px;
+        margin: 12% auto;
+    }
+
+    .close, .close2 {
+        font-size: 26px;
+    }
+
+    .modal-content h2, .modal-content2 h1 {
+        font-size: 1.75rem;
+    }
+
+    .modal-content p, .modal-content2 p {
+        font-size: 1rem;
+    }
+
+    .userdetails .imgbox img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .review p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .modal-content, .modal-content2 {
+        width: 60%;
+        padding: 30px;
+        margin: 10% auto;
+    }
+
+    .close, .close2 {
+        font-size: 30px;
+    }
+
+    .modal-content h2, .modal-content2 h1 {
+        font-size: 2rem;
+    }
+
+    .modal-content p, .modal-content2 p {
+        font-size: 1.1rem;
+    }
+
+    .userdetails .imgbox img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .review p {
+        font-size: 1rem;
+    }
+}
+
+/* modal media query */
+
+
+
+
+
+
+/* added code */
+.footer__socials {
+    display: flex;
+    justify-content: flex-end; /* Aligns icons to the right */
+    align-items: center; /* Centers icons vertically */
+}
+
+.footer__social {
+    font-size: 1.25rem;
+    margin-right: 1.5rem;
+}
+
+.footer__social:last-child {
+    margin-right: 0; /* Removes the margin from the last icon */
+}
+
+.footer__social:hover {
+    opacity: 0.8;
+}
+/* ends here */
+
+.footer__copy {
+    text-align: center;
+    background: rgb(91, 73, 255);
+    font-size: .875rem;
+    text-align: center;
+    color: #dcdcdc;
+    padding: 3rem 0 2rem;
+}
+
+@-webkit-keyframes bubble-size {
+
+    0%,
+    75% {
+        width: var(--size, 4rem);
+        height: var(--size, 4rem);
+    }
+
+    100% {
+        width: 0rem;
+        height: 0rem;
+    }
+}
+
+@keyframes bubble-size {
+
+    0%,
+    75% {
+        width: var(--size, 4rem);
+        height: var(--size, 4rem);
+    }
+
+    100% {
+        width: 0rem;
+        height: 0rem;
+    }
+}
+
+@-webkit-keyframes bubble-move {
+    0% {
+        bottom: -4rem;
+    }
+
+    100% {
+        bottom: var(--distance, 10rem);
+    }
+}
+
+@keyframes bubble-move {
+    0% {
+        bottom: -4rem;
+    }
+
+    100% {
+        bottom: var(--distance, 10rem);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer .content {
+        padding: 0 1.5rem;
+    }
+
+    .footer .content .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .content span {
+        font-size: .813rem;
+    }
+
+    .footer__links {
+        flex-direction: column;
+        row-gap: 1.5rem;
+    }
+
+    .footer__socials {
+        justify-self: flex-start;
+    }
+}
+
+@media screen and (max-width: 567px) {
+    .footer .content .container {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3.5rem;
+    }
+}
+
+/* bubbles media query */
+
+/* team section css */
+
+/* modals css 3 */
+
+.modal3 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+.modal-content3 {
+    background-color: #EBF4F6;
+    margin: 5% auto; /* Centered modal */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Could be more or less, depending on screen size */
+    max-width: 1000px; /* Ensures the modal isn't too wide */
+    text-align: left; /* Aligns content to the left */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Ensure relative positioning for the close button */
+}
+
+/* Close button */
+.close3 {
+    color: #777777;
+    float: right;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; /* Ensure the button is positioned relative to the modal content */
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    z-index: 1100; /* Higher z-index to stay above other content */
+}
+
+.close3:hover,
+.close3:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* teams css starts here */
+
+.wrapper .title{
+    text-align: center;
+}
+
+.title h4{
+    display: inline-block;
+    padding: 20px;
+    color: #071952;
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    word-spacing: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    text-transform: uppercase;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+}
+
+.wrapper .card_Container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.card_Container .card{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 30px -20px rgba(0, 0, 0, 1),
+                inset 0 0 0 1000px rgba(67, 52, 109, .6);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .imbBx, .imbBx img{
+    width: 100%;
+    height: 100%;
+}
+
+.card .content{
+    position: absolute;
+    bottom: -160px;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: bottom 0.5s;
+    transition-delay: 0.65s;
+}
+
+.card:hover .content{
+    bottom: 0;
+    transition-delay: 0s;
+}
+
+.content .contentBx h3{
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 15px;
+    line-height: 1.1em;
+    transition: 0.5s;
+    transition-delay: 0.6s;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.card:hover .content .contentBx h3{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content .contentBx h3 span{
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: initial;
+}
+
+.content .sci{
+    position: relative;
+    bottom: 10px;
+    display: flex;
+}
+
+.content .sci li{
+    list-style: none;
+    margin: 0 10px;
+    transform: translateY(40px);
+    transition: 0.5s;
+    opacity: 0;
+    transition-delay: calc(0.2s * var(--i));
+}
+
+.card:hover .content .sci li{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.content .sci li a{
+    color: #fff;
+    font-size: 24px;
+}
+
+@media screen and (max-width: 767px) {
+    .footer .content {
+        padding: 0 1.5rem;
+    }
+
+    .footer .content .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .content span {
+        font-size: .813rem;
+    }
+
+    .footer__links {
+        flex-direction: column;
+        row-gap: 1.5rem;
+    }
+
+    .footer__socials {
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width: 567px) {
+    .footer .content .container {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3.5rem;
+    }
+}
+
+/* bubbles media query */
+
+/* General Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    .footer .content .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer__links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .footer__socials {
+        justify-content: center;
+    }
+}
+
+/* Further Adjustments for Very Small Screens */
+@media (max-width: 480px) {
+    .footer .content .container {
+        padding: 1rem;
+    }
+
+    .footer__logo {
+        width: 90px;
+    }
+
+    .footer__link {
+        font-size: 0.9rem;
+    }
+
+    .footer__copy {
+        font-size: 0.8rem;
+    }
+
+    .modal-content, .modal-content2 {
+        margin: 10% auto;
+        width: 90%;
+    }
+
+    .eachdiv {
+        min-width: 200px;
+    }
+
+    .imgbox img {
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    body .footer .bubbles .bubble {
+        width: var(--bubble-size-small, 2.5rem);
+        height: var(--bubble-size-small, 1.5rem);
+        left: var(--position-small, 50%);
+    }
+}
+
+
+

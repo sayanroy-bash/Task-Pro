@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/tableView.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/79c3e1b7af.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <div id="container">
+        <div id="merged-sidebar-tableview-container">
+            <div id="sidebar-container">
+                <div class="logo-user-container">
+                    <p style="margin-top:1rem;padding-left:1rem">TaskPro</p>
+                    <i class="fa-solid fa-user" id="user"></i>
+                </div>
+                <input type="text" id="search-bar" placeholder="Search Here...">
+                <div class="list-container">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="/Array-Archers_023/index.html" class="content">Home</a>
+                </div>
+                <div class="list-container">
+                    <i class="fa-solid fa-trophy"></i>
+                    <a href="#" class="content">Goals</a>
+                </div>
+                <div class="list-container">
+                    <i class="fa-solid fa-list-check"></i>
+                    <a href="#" class="content">Tasks</a>
+                </div>
+                <div id="view-container">
+                    <div class="dropdown">
+                        <span class="material-symbols-outlined" id="view-icon">
+                            visibility
+                        </span>
+                        <button class="dropbtn">Views
+                            
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="./tableView.html">Table View</a>
+                            <a href="#">Board View</a>
+                            <a href="#">Calendar View</a>
+                            <a href="#">Graph View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="showDialogBtn">Create Your Task</button>
+
+          <dialog id="favDialog">
+            <form id="task-form">
+              <!-- <label for="task-name">Task Name:</label> -->
+              <input
+                type="text"
+                id="task-name"
+                placeholder="Task Name:"
+                required
+              />
+              <!-- <label for="task-description">Task Description:</label> -->
+              <textarea
+                id="task-description"
+                placeholder="Task Description :"
+              ></textarea>
+              <!-- <label for="due-date">Due Date:</label> -->
+
+              <div class="filterBTN">
+                <input
+                  type="date"
+                  id="due-date"
+                  placeholder="Due Date :"
+                  required
+                />
+                <!-- <label for="importance">Importance:</label> -->
+                <select id="importance" aria-placeholder="Importance:">
+                  <option value="Importance">Importance:</option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+                <!-- <label for="urgency">Urgency:</label> -->
+                <select id="urgency">
+                  <option value="Urgency">Urgency:</option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+                <!-- <label for="status">Status:</label> -->
+                <select id="status">
+                  <option value="Status">Status:</option>
+                  <option value="pending">Pending</option>
+                  <option value="inProgress">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+
+              <button id="submit" type="submit">Add Task</button>
+            </form>
+          </dialog>
+            <div id="table-view-container">
+                <h2>Task Management Table</h2>
+
+                <table>
+                   
+                        <thead>
+                            <tr>
+                                <th>Sr. No</th>
+                                <th>Task Name</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Due Date</th>
+                                <th>Priority</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                    
+                    
+                        <tbody>
+                            
+                        
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="../script/tableView.js"></script>
+</body>
+</html>
