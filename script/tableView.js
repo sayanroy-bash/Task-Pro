@@ -48,33 +48,23 @@ const fetchTasks = async () => {
 };
 
 
-const updateTasks = async () => {
-    try {
-        const res = await fetch(url, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ tasks })
-        });
 
-        if (!res.ok) {
-            throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-    } catch (error) {
-        console.error("Error updating tasks:", error);
-    }
-};
 
 taskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const taskName = document.getElementById('task-name').value;
+    taskName.id="taskName"
     const taskDescription = document.getElementById('task-description').value;
+    taskDescription.id="taskDescription"
     const dueDate = document.getElementById('due-date').value;
+    dueDate.id="dueDate"
     const importance = document.getElementById('importance').value;
+    importance.id="importance"
     const urgency = document.getElementById('urgency').value;
+    urgency.id="urgency"
     const status = document.getElementById('status').value;
+    status.id="status"
 
     task = {
         name: taskName,
@@ -86,6 +76,8 @@ taskForm.addEventListener('submit', async (e) => {
         priority: calculatePriority(importance, urgency),
         authToken:userId
     };
+
+  
 
     if (editIndex === -1) {
         await addTask(task);
@@ -157,36 +149,54 @@ function calculatePriority(importance, urgency) {
     return priorityOrder[importance] + priorityOrder[urgency];
 }
 
-function renderTaskList(){
-    let tbody=document.querySelector("tbody");
-    tbody.innerHTML="";
+function renderTaskList() {
+    let tbody = document.querySelector("tbody");
+    tbody.innerHTML = "";
 
-    tasks.forEach((ele,index)=>{
-        let tr=document.createElement("tr");
-        let serial=document.createElement("td");
-        let name=document.createElement("td");
-        let desc=document.createElement("td");
-        let status=document.createElement("td");
-        let date=document.createElement("td");
-        let priority=document.createElement("td");
-        let edit=document.createElement("button");
-        let dlt=document.createElement("button");
+    tasks.forEach((ele, index) => {
+        let tr = document.createElement("tr");
+        let serial = document.createElement("td");
+        let name = document.createElement("td");
+        let desc = document.createElement("td");
+        let status = document.createElement("td");
+        let date = document.createElement("td");
+        let priority = document.createElement("td");
+        let editTd = document.createElement("td");
+        let deleteTd = document.createElement("td");
 
-        serial.innerText=index+1;
-        name.innerText=ele.name;
-        desc.innerText=ele.description;
-        status.innerText=ele.status;
-        date.innerText=ele.dueDate;
-        priority.innerText=ele.priority;
-        edit.innerText="Edit";
-        // edit.onclick=
-        dlt.innerText="Delete";
-        dlt.onclick=()=>deleteTask(index);
+        serial.innerText = index + 1;
+        name.innerText = ele.name;
+        desc.innerText = ele.description;
+        status.innerText = ele.status;
+        date.innerText = ele.dueDate;
+        priority.innerText = ele.priority;
 
-        tr.append(serial,name,desc,status,date,priority,edit,dlt);
+        let edit = document.createElement("button");
+        edit.id = "editBtn";
+        edit.innerText = "Edit";
+        edit.onclick = () => {
+            editIndex = index;
+            document.getElementById('task-name').value = ele.name;
+            document.getElementById('task-description').value = ele.description;
+            document.getElementById('due-date').value = ele.dueDate;
+            document.getElementById('importance').value = ele.importance;
+            document.getElementById('urgency').value = ele.urgency;
+            document.getElementById('status').value = ele.status;
+        };
+
+        let dlt = document.createElement("button");
+        dlt.id = "deleteBtn";
+        dlt.innerText = "Delete";
+        dlt.onclick = () => deleteTask(index);
+
+        editTd.append(edit);
+        deleteTd.append(dlt);
+
+        tr.append(serial, name, desc, status, date, priority, editTd, deleteTd);
         tbody.append(tr);
-    })
+    });
 }
+
 
 //QASDFGHJKL;'/
 
@@ -199,3 +209,16 @@ showDialogBtn.addEventListener('click', () => favDialog.showModal());
 closeSubmit.addEventListener("click", () => {
     favDialog.close();
   });
+
+
+  let hamburger=document.getElementById('hamburger-menu')
+  
+  let sidebar= document.getElementById('sidebar-container')
+
+  hamburger.addEventListener('click', function(event) {
+    event.preventDefault()
+    
+    sidebar.style.display="block"
+    sidebar.style.width="15%"
+    sidebar.classList.toggle('active');
+});
