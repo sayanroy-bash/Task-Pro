@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Taskpro</title>
+    <link rel="website icon" type="png" href="../login&sign_up/img/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script
+      src="https://kit.fontawesome.com/79c3e1b7af.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <link rel="stylesheet" href="../styles/calender.css" />
+     
+  </head>
+  <body>
+    <div class="containerNav">
+      <nav id="landing-page-navbar">
+        <div id="landing-page-logo">
+          <img
+            src="../images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png"
+            alt="taskpro-Logo"
+            id="logo"
+          />
+        </div>
+        <div id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="landing-page-menu">
+          <ul>
+            <li class="menu"><a href="../index.html">Home</a></li>
+            <li class="menu"><a href="#">My Tasks</a></li>
+            <li class="menu"><a href="#">Activities</a></li>
+            <li class="menu"><a href="#">About</a></li>
+            <div class="login-signupBtns">
+              <button id="loginBtn" class="btn">Login</button>
+              <button id="signupBtn" class="btn">Signup</button>
+              <button id="logout" style="display: none">Logout</button>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <main>
+      <div id="sidebar-container">
+        <div class="logo-user-container">
+          <p style="margin-top: 1rem; padding-left: 1rem">TaskPro</p>
+
+          <i class="fa-solid fa-user" id="user"></i>
+        </div>
+        <input type="text" id="search-bar" placeholder="Search Here..." />
+        <div class="list-container">
+          <i class="fa-solid fa-house"></i>
+          <a href="../index.html" class="content">Home</a>
+        </div>
+        <div class="list-container">
+          <i class="fa-solid fa-trophy"></i>
+          <a href="#" class="content">Goals</a>
+        </div>
+        <div class="list-container">
+          <i class="fa-solid fa-list-check"></i>
+          <a href="../html/task.html" class="content">Tasks</a>
+        </div>
+        <div id="view-container">
+          <div class="dropdown">
+            <span class="material-symbols-outlined" id="view-icon">
+              visibility
+            </span>
+            <button class="dropbtn">Views</button>
+            <div class="dropdown-content">
+              <span class="material-symbols-outlined"> table </span
+              ><a href="../html/table.html">Table View</a>
+
+              <span class="material-symbols-outlined"> space_dashboard </span>
+              <a href="../html/task.html">Board View</a>
+
+              <span class="material-symbols-outlined"> calendar_month </span>
+              <a href="../html/calender.html">Calendar View</a>
+
+              <span class="material-symbols-outlined"> monitoring </span>
+              <a href="../html/graph.html">Graph View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="calendar">
+          <div class="header">
+            <div class="month">July 2021</div>
+            <div class="btns">
+              <!-- today -->
+              <div class="btn today">
+                <span class="material-symbols-outlined"> calendar_month </span>
+              </div>
+              <!-- previous month -->
+              <div class="btn prev">
+                <span class="material-symbols-outlined"> chevron_left </span>
+              </div>
+              <!-- next month -->
+              <div class="btn next">
+                <span class="material-symbols-outlined"> chevron_right </span>
+              </div>
+            </div>
+          </div>
+          <div class="weekdays">
+            <div class="day">Sun</div>
+            <div class="day">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day">Thu</div>
+            <div class="day">Fri</div>
+            <div class="day">Sat</div>
+          </div>
+          <div class="days">
+            <!-- render days with js -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      let loginBtn = document.getElementById("loginBtn");
+      let signupBtn = document.getElementById("signupBtn");
+
+      loginBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "../login&sign_up/index.html";
+      });
+
+      signupBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "../login&sign_up/index.html";
+      });
+    </script>
+  </body>
+
+  <script src="../script/calender.js"></script>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskpro</title>
+    <link rel="website icon" type="png" href="../login&sign_up/img/logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://kit.fontawesome.com/79c3e1b7af.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="../styles/graph.css">
+  
+  </head>
+  <body>
+  
+
+    <nav>
+
+        <div class="container1">
+          <div class="image">
+            <img src="../images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png" alt="taskpro-Logo" id="logo" />
+        </div>
+        <div id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    
+        <div id="landing-page-menu">
+          <ul>
+              <li class="menu"><a href="../index.html">Home</a></li>
+              <li class="menu"><a href="./task.html">My Tasks</a></li>
+              <li class="menu"><a href="#">Activities</a></li>
+              <li class="menu"><a href="#">About</a></li>
+              <div class="login-signupBtns">
+                  <button id="loginBtn" class="btn">Login</button>
+                  <button id="signupBtn" class="btn">Signup</button>
+                  <button id="logout" style="display: none;">Logout</button>
+              </div>
+          </ul>
+      </div>
+    
+    
+        </div>
+    
+      </nav>
+
+
+
+    <main>
+      <div id="sidebar-container">
+        <div class="logo-user-container">
+            <p style="margin-top:1rem;padding-left:1rem">TaskPro</p>
+            
+            <i class="fa-solid fa-user" id="user"></i>
+        </div>
+        <input type="text" id="search-bar" placeholder="Search Here...">
+        <div class="list-container">
+            <i class="fa-solid fa-house"></i>
+            <a href="../index.html" class="content">Home</a>
+        </div>
+        <div class="list-container">
+            <i class="fa-solid fa-trophy"></i>
+            <a href="#" class="content">Goals</a>
+        </div>
+        <div class="list-container">
+            <i class="fa-solid fa-list-check"></i>
+            <a href="../html/task.html" class="content">Tasks</a>
+        </div>
+        <div id="view-container">
+            <div class="dropdown">
+                <span class="material-symbols-outlined" id="view-icon">
+                    visibility
+                </span>
+                <button class="dropbtn">Views</button>
+                <div class="dropdown-content">
+
+                  
+                    <span class="material-symbols-outlined">
+                      table
+                      </span><a href="../html/table.html">Table View</a>
+                 
+                  
+                  
+                      <span class="material-symbols-outlined">
+                        space_dashboard
+                        </span>
+                        <a href="../html/task.html">Board View</a>
+                   
+                   
+                      <span class="material-symbols-outlined">
+                        calendar_month
+                        </span>
+                        <a href="../html/calender.html">Calendar View</a>
+                  
+                    
+                      <span class="material-symbols-outlined">
+                        monitoring
+                        </span>
+                        <a href="../html/graph.html">Graph View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+        <div class="container">
+           
+            
+            <div id="chart-container">
+                <canvas id="taskChart"></canvas>
+            </div>
+        
+        </div>
+    </main>
+
+
+
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    const taskForm = document.getElementById("task-form");
+const generateDataBtn = document.getElementById("generate-data");
+const filterStatus = document.getElementById("filter-status");
+const pendingTasksList = document.getElementById("pending-tasks-list");
+const inProgressTasksList = document.getElementById("in-progress-tasks-list");
+const completedTasksList = document.getElementById("completed-tasks-list");
+const userId = localStorage.getItem("authToken");
+const url = `https://array-archers-default-rtdb.firebaseio.com/tasks.json`;
+
+let data;
+let taskID;
+let tasks = [];
+let editIndex = -1;
+let task;
+let todo; // Value for 'todo'
+let pending; // Value for 'pending'
+let done; // Value for 'done'
+
+if (!userId) {
+  window.alert("User not logged in. Please log in first.");
+  window.location.href = "../login&sign_up/index.html";
+}
+document.querySelector("#logout").style.display="block";
+document.querySelector("#loginBtn").style.display="none";
+document.querySelector("#signupBtn").style.display="none";
+document.addEventListener("DOMContentLoaded", () => {
+  if (userId) {
+    fetchTasks();
+  }
+});
+
+const fetchTasks = async () => {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+    const user = await res.json();
+    if (!user) {
+      alert("No Tasks left");
+    } else {
+      data = Object.values(user);
+      taskID = Object.keys(user);
+      tasks = data.filter((ele) => {
+        return ele.authToken === userId;
+      });
+      renderTaskList();
+    }
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+  }
+};
+
+function renderTaskList() {
+  todo = tasks.filter((ele) => {
+    return ele.status === "inProgress";
+  }).length;
+  pending = tasks.filter((ele) => {
+    return ele.status === "pending";
+  }).length;
+  done = tasks.filter((ele) => {
+    return ele.status === "completed";
+  }).length;
+
+  // Initialize the chart after the todo, pending, and done values are set
+  const ctx = document.getElementById("taskChart").getContext("2d");
+  const taskChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["ToDo", "Pending", "Done"],
+      datasets: [
+        {
+          label: "Tasks",
+          data: [todo, pending, done],
+          backgroundColor: ["#f39c12", "#e67e22", "#27ae60"],
+          borderColor: ["#e67e22", "#d35400", "#2ecc71"],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}
+
+let loginBtn = document.getElementById("loginBtn");
+      let signupBtn = document.getElementById("signupBtn");
+
+      loginBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "../login&sign_up/index.html";
+      });
+
+      signupBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "../login&sign_up/index.html";
+      });
+
+
+      document.querySelector("#logout").addEventListener("click",()=>{
+    localStorage.removeItem("authToken");
+    window.location.href="../login&sign_up/index.html"
+  })
+
+    </script>
+  </body>
+</html>
