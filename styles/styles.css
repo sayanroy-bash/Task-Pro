@@ -24,7 +24,7 @@
 
 .container{
   width:1400px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: auto;
 }
 
@@ -109,6 +109,10 @@ margin-left: 10rem;
 /* border: 1px solid black; */
 }
 
+
+
+
+
 .btn{
 padding: 0.7rem 1rem;
 
@@ -191,32 +195,57 @@ margin-left: 20rem;
 }
 
 
+/* .container {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
-#brand-names{
-display: flex;
-flex-wrap: wrap;
-flex-direction: row;
-width: 95%;
-
-
+.scroll-section {
+  overflow: hidden;
+  width: 100%;
+  height: 400px; /* Adjust the height to fit all images */
+  position: relative;
 }
 
-.brand-names-card{
-width:20%;
-height:6rem;
-margin-left:4rem;
-margin-top: 4rem;
-
-padding:1rem;
-padding-left:2rem;
-box-shadow:0 0 10px grey;
-border-radius:0.5rem;
+.brand-names {
+  display: flex;
+  gap: 100px;
+  animation: scroll 15s linear infinite;
 }
 
-.brand-names-card .brand-images{
-filter: colorscale(100%);
-width:80%;
-height:4rem;
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.brand-names-card {
+  margin-top: 100px;
+  transition: transform 0.3s ease;
+}
+
+.brand-images {
+  width: 200px;
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.brand-names-card:hover {
+  animation-play-state: paused;
+  transform: scale(1.2);
+}
+
+.brand-images:hover {
+  transform: scale(1.2);
+}
+
+.scroll-section:hover .brand-names {
+  animation-play-state: paused;
 }
 
 .scroll-section {
@@ -555,7 +584,7 @@ button#getStartedBtn{
 
 
 button#getStartedBtn{
-  
+  background-color: red;
   border: 1px solid black;
 
 }

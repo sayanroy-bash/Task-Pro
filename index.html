@@ -4,35 +4,464 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Management Platform</title>
-    <link rel="stylesheet" href="./styles/styles.css">
-    
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <!-- <link rel="stylsheet" href="../Array-Archers_023/footer-design/style_footer.css"> -->
   </head>
+
+
+
+
+  <div class="container">
+    <nav id="landing-page-navbar">
+      <div id="landing-page-logo">
+        <img
+          src="./images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png"
+          alt="taskpro-Logo"
+          id="logo"/>
+      </div>
+      <div id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="landing-page-menu">
+        <ul>
+          <li class="menu"><a href="#">Home</a></li>
+          <li class="menu"><a href="#">My Tasks</a></li>
+          <li class="menu"><a href="#">Activities</a></li>
+          <li class="menu"><a href="#">About</a></li>
+          <div class="login-signupBtns">
+            <button id="loginBtn" class="btn">Login</button>
+            <button id="signupBtn" class="btn">Signup</button>
+          </div>
+        </ul>
+      </div>
+    </nav>
+
+  </div>
+
+
+  <div class="container">
+    <div id="hero-container">
+      <h2
+        style="
+          background: linear-gradient(
+            to right,
+            rgb(13, 101, 217),
+            rgb(5, 125, 230)
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-top: 10rem;
+          margin-left: 5rem;
+        "
+      >
+        Find Your Wonderful
+        <span
+          style="
+            background: linear-gradient(
+              to right,
+              rgb(9, 139, 220),
+              rgb(199, 194, 194)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          "
+          >Experience in Organizing</span
+        >
+        Task Workflow!!
+      </h2>
+      <p>
+        Simplify life for both you and your team. The world’s #1 task manager
+        and to-do list app.
+      </p>
+      <button id="getStartedBtn" class="btn">Get Started</button>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div id="task-image-container" class="scroll-section">
+      <img src="./images/taskImage.jpg" alt="" id="taskImage" />
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <div id="different-department-container" class="scroll-section">
+      <h1 style="text-align: center; margin-top: 4rem">
+        See how TaskPro connects work across different departments
+      </h1>
+      <div id="department-buttons">
+        <button class="deptBtn" data-department="company-wide">
+          Company-wide
+        </button>
+        <button class="deptBtn" data-department="marketing">Marketing</button>
+        <button class="deptBtn" data-department="operations">
+          Operations
+        </button>
+        <button class="deptBtn" data-department="it">IT</button>
+        <button class="deptBtn" data-department="product">Product</button>
+      </div>
+      <div id="departments">
+        <img
+          id="department-image"
+          src="https://assets.asana.biz/transform/4ec30921-268a-4ffb-b3f9-9d1061b96872/WEB-PNG-refresh24-ICP-company-4x3-en_us?io=transform:fill,width:1680&format=webp"
+          alt=""
+        />
+        <div id="departments-content">
+          <h2 id="department-title">Operationalize goal</h2>
+          <ul id="department-list">
+            <li>Connect work to company goals</li>
+            <li>Automate workflows across departments</li>
+            <li>Report on progress and address bottlenecks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  
+
+
+  <div class="container">
+    <div class="section">
+      <div class="left-image">
+        <img
+          src="./images/img/todo-1.jpg"
+          alt="Image 1"
+          class="responsive-image"
+        />
+      </div>
+      <div class="right-text">
+        <h2>Organize Tasks and Projects Seamlessly</h2>
+        <p>
+          Our platform helps you create, assign, and track tasks efficiently,
+          ensuring all projects are completed on time...
+        </p>
+        <ul class="section-content">
+          <li>Create tasks with deadlines...</li>
+          <li>Assign tasks to team members...</li>
+          <li>Track progress and productivity...</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <div class="left-text">
+        <h2>Collaborate and Communicate Effectively</h2>
+        <p>
+          Facilitate team communication and collaboration with our integrated
+          messaging and file-sharing features.
+        </p>
+        <ul class="section-content">
+          <li>Integrated chat and notifications...</li>
+          <li>Share files and resources...</li>
+          <li>Comment on tasks and projects...</li>
+        </ul>
+      </div>
+      <div class="right-image">
+        <img
+          src="../Array-Archers_023/images/img/todo-2.webp"
+          alt="Image 2"
+          class="responsive-image"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="center-content">
+      <h1>Start Managing Your Tasks Today</h1>
+      <button>Get Started</button>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="card-grid">
+      <div class="card">
+        <h3>Task Scheduling</h3>
+        <p>
+          Effortlessly schedule and manage tasks with our intuitive calendar
+          and deadline features.
+        </p>
+        <a href="#">Learn more</a>
+      </div>
+      <div class="card">
+        <h3>Team Collaboration</h3>
+        <p>
+          Enhance team coordination with real-time chat and collaborative
+          tools.
+        </p>
+        <a href="#">Learn more</a>
+      </div>
+      <div class="card">
+        <h3>Progress Tracking</h3>
+        <p>
+          Monitor progress with comprehensive tracking and reporting features.
+        </p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card-grid">
+      <div class="card">
+        <h3>Custom Workflows</h3>
+        <p>
+          Create custom workflows to suit your project's needs and optimize
+          task management.
+        </p>
+        <a href="#">Learn more</a>
+      </div>
+      <div class="card">
+        <h3>Integration</h3>
+        <p>
+          Seamlessly integrate with other tools and platforms to streamline
+          your workflow.
+        </p>
+        <a href="#">Learn more</a>
+      </div>
+      <div class="card">
+        <h3>Analytics</h3>
+        <p>
+          Gain insights into your team's performance and task completion rates
+          with detailed analytics.
+        </p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+
+  </div>
+
+
+  
+
+  <div class="container" style=" display: flex;  flex-direction: row; margin-top: 100px; margin-bottom: 100px;">
+    <div id="brand-container" class="scroll-section">
+      <p style="text-align: center; margin-right: 2rem ; color: black; font-size: 2em; font-weight: bold;">
+        85% of Fortune 100 companies choose TaskPro
+      </p>
+      <div class="brand-names" style="width: 100%; height: 200px;">
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 7.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 6.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 5.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 4.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 3.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 2.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 7.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 6.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 5.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 4.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 3.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy 2.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image copy.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+        <div class="brand-names-card">
+          <img src="../Array-Archers_023/images/image.png" alt="" class="brand-images" style="width: 200px; height: 100px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="main-container">
+        <!-- First Div (Heading and Paragraph) -->
+        <div class="header-section">
+          <h1>Discover What Our Company Users Are Saying</h1>
+          <p>
+            Peer into the transformative power of our version control platform
+            as shared by our community of satisfied users, highlighting the
+            exceptional value we bring to the development landscape.
+          </p>
+        </div>
+
+        <!-- Card Section -->
+        <div class="card-section">
+          <!-- First Row -->
+          <div class="card">
+            <img src="images/img/logo-1.png" alt="Pipedrive Logo" />
+            <h3>Pipedrive</h3>
+            <p>
+              Join our satisfied customer base and experience why we hold a
+              stellar average rating of 4.9 stars, reflecting our dedication to
+              exceptional service.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+          <div class="card">
+            <img src="images/img/logo-2.png" alt="Stripe Logo" />
+            <h3>Stripe</h3>
+            <p>
+              Join our satisfied customer base and experience why we hold a
+              stellar average rating of 4.9 stars, reflecting our dedication to
+              exceptional service.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+          <div class="card">
+            <img src="images/img/logo-3.jpeg" alt="Leadpages Logo" />
+            <h3>Leadpages</h3>
+            <p>
+              Join our satisfied customer base and experience why we hold a
+              stellar average rating of 4.9 stars, reflecting our dedication to
+              exceptional service.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+
+          <!-- Second Row -->
+          <div class="card">
+            <img src="images/img/logo-4.jpeg" alt="Coinbase Logo" />
+            <h3>Coinbase</h3>
+            <p>
+              Trust is evident in our 4.7-star average rating, a testament to
+              our commitment to delivering value and reliability.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+          <div class="card">
+            <img src="images/img/logo-5.png" alt="Alibaba Logo" />
+            <h3>Alibaba</h3>
+            <p>
+              Consistently delivering excellence has earned us an average rating
+              of 4.9 stars, reflecting our dedication to quality.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+          <div class="card">
+            <img src="images/img/logo-6.jpeg" alt="Paypal Logo" />
+            <h3>Paypal</h3>
+            <p>
+              User feedback has contributed to our outstanding 4.9-star rating,
+              demonstrating our dedication to exceeding expectations.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+
+          <!-- Third Row -->
+          <div class="card">
+            <img src="images/img/logo-7.png" alt="eBay Logo" />
+            <h3>eBay</h3>
+            <p>
+              Join our satisfied customer base and experience why we hold a
+              stellar average rating of 4.9 stars, reflecting our dedication to
+              exceptional service.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+          <div class="card">
+            <img src="images/img/logo-8.png" alt="Walmart Logo" />
+            <h3>Walmart</h3>
+            <p>
+              Join our satisfied customer base and experience why we hold a
+              stellar average rating of 4.9 stars, reflecting our dedication to
+              exceptional service.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+          <div class="card">
+            <img src="images/img/logo-9.png" alt="Amazon Logo" />
+            <h3>Amazon.com</h3>
+            <p>
+              Join our satisfied customer base and experience why we hold a
+              stellar average rating of 4.9 stars, reflecting our dedication to
+              exceptional service.
+            </p>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
   <body>
     <div class="container">
-      <nav id="landing-page-navbar">
+      <!-- <nav id="landing-page-navbar">
         <div id="landing-page-logo">
-            <img src="./images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png" alt="taskpro-Logo" id="logo" />
+          <img
+            src="./images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png"
+            alt="taskpro-Logo"
+            id="logo"/>
         </div>
         <div id="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
         <div id="landing-page-menu">
-            <ul>
-                <li class="menu"><a href="#">Home</a></li>
-                <li class="menu"><a href="#">My Tasks</a></li>
-                <li class="menu"><a href="#">Activities</a></li>
-                <li class="menu"><a href="#">About</a></li>
-                <div class="login-signupBtns">
-                    <button id="loginBtn" class="btn">Login</button>
-                    <button id="signupBtn" class="btn">Signup</button>
-                </div>
-            </ul>
+          <ul>
+            <li class="menu"><a href="#">Home</a></li>
+            <li class="menu"><a href="#">My Tasks</a></li>
+            <li class="menu"><a href="#">Activities</a></li>
+            <li class="menu"><a href="#">About</a></li>
+            <div class="login-signupBtns">
+              <button id="loginBtn" class="btn">Login</button>
+              <button id="signupBtn" class="btn">Signup</button>
+            </div>
+          </ul>
         </div>
-    </nav>
-    
-      <div id="hero-container" >
+      </nav> -->
+
+      <!-- <div id="hero-container">
         <h2
           style="
             background: linear-gradient(
@@ -41,7 +470,9 @@
               rgb(5, 125, 230)
             );
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;margin-top:10rem;margin-left:5rem;
+            -webkit-text-fill-color: transparent;
+            margin-top: 10rem;
+            margin-left: 5rem;
           "
         >
           Find Your Wonderful
@@ -63,13 +494,15 @@
           Simplify life for both you and your team. The world’s #1 task manager
           and to-do list app.
         </p>
-        <button id="getStartedBtn" class="btn" >Get Started</button>
-      </div>
-      <div id="task-image-container" class="scroll-section">
+        <button id="getStartedBtn" class="btn">Get Started</button>
+      </div> -->
+      <!-- <div id="task-image-container" class="scroll-section">
         <img src="./images/taskImage.jpg" alt="" id="taskImage" />
-      </div>
-      <div id="brand-container" class="scroll-section">
-        <p style="text-align:center;margin-right:2rem;">85% of Fortune 100 companies choose TaskPro</p>
+      </div> -->
+      <!-- <div id="brand-container" class="scroll-section">
+        <p style="text-align: center; margin-right: 2rem">
+          85% of Fortune 100 companies choose TaskPro
+        </p>
         <div id="brand-names">
           <div class="brand-names-card">
             <img
@@ -128,36 +561,48 @@
             />
           </div>
         </div>
-      </div>
-      <div id="different-department-container" class="scroll-section">
-        <h1 style="text-align:center;margin-top:4rem;">See how TaskPro connects work across different departments</h1>
+      </div> -->
+      <!-- <div id="different-department-container" class="scroll-section">
+        <h1 style="text-align: center; margin-top: 4rem">
+          See how TaskPro connects work across different departments
+        </h1>
         <div id="department-buttons">
-            <button class="deptBtn" data-department="company-wide">Company-wide</button>
-            <button class="deptBtn" data-department="marketing">Marketing</button>
-            <button class="deptBtn" data-department="operations">Operations</button>
-            <button class="deptBtn" data-department="it">IT</button>
-            <button class="deptBtn" data-department="product">Product</button>
+          <button class="deptBtn" data-department="company-wide">
+            Company-wide
+          </button>
+          <button class="deptBtn" data-department="marketing">Marketing</button>
+          <button class="deptBtn" data-department="operations">
+            Operations
+          </button>
+          <button class="deptBtn" data-department="it">IT</button>
+          <button class="deptBtn" data-department="product">Product</button>
         </div>
         <div id="departments">
-            <img id="department-image" src="https://assets.asana.biz/transform/4ec30921-268a-4ffb-b3f9-9d1061b96872/WEB-PNG-refresh24-ICP-company-4x3-en_us?io=transform:fill,width:1680&format=webp" alt="">
-            <div id="departments-content">
-                <h2 id="department-title">Operationalize goal</h2>
-                <ul id="department-list">
-                    <li>Connect work to company goals</li> 
-                    <li> Automate workflows across departments</li>
-                    <li> Report on progress and address bottlenecks</li>
-                </ul>
-            </div>
+          <img
+            id="department-image"
+            src="https://assets.asana.biz/transform/4ec30921-268a-4ffb-b3f9-9d1061b96872/WEB-PNG-refresh24-ICP-company-4x3-en_us?io=transform:fill,width:1680&format=webp"
+            alt=""
+          />
+          <div id="departments-content">
+            <h2 id="department-title">Operationalize goal</h2>
+            <ul id="department-list">
+              <li>Connect work to company goals</li>
+              <li>Automate workflows across departments</li>
+              <li>Report on progress and address bottlenecks</li>
+            </ul>
+          </div>
         </div>
-        
-      </div>
-      
-    
-<!-- Ashita code ended -->
+      </div> -->
 
-      <div class="section">
+      <!-- Ashita code ended -->
+
+      <!-- <div class="section">
         <div class="left-image">
-          <img src="./images/img/todo-1.jpg" alt="Image 1" class="responsive-image" />
+          <img
+            src="./images/img/todo-1.jpg"
+            alt="Image 1"
+            class="responsive-image"
+          />
         </div>
         <div class="right-text">
           <h2>Organize Tasks and Projects Seamlessly</h2>
@@ -171,10 +616,10 @@
             <li>Track progress and productivity...</li>
           </ul>
         </div>
-      </div>
+      </div> -->
 
       <!-- Second Section -->
-      <div class="section">
+      <!-- <div class="section">
         <div class="left-text">
           <h2>Collaborate and Communicate Effectively</h2>
           <p>
@@ -188,21 +633,23 @@
           </ul>
         </div>
         <div class="right-image">
-          <img src="./images/img/todo-2.jpg" alt="Image 2" class="responsive-image" />
+          <img
+            src="../Array-Archers_023/images/img/todo-2.webp"
+            alt="Image 2"
+            class="responsive-image"
+          />
         </div>
-      </div>
+      </div> -->
 
       <!-- Second layout -->
       <!-- First div -->
-      <div class="center-content">
+      <!-- <div class="center-content">
         <h1>Start Managing Your Tasks Today</h1>
         <button>Get Started</button>
-      </div>
-
-
+      </div> -->
 
       <!-- Second div with three cards -->
-      <div class="card-grid">
+      <!-- <div class="card-grid">
         <div class="card">
           <h3>Task Scheduling</h3>
           <p>
@@ -226,10 +673,10 @@
           </p>
           <a href="#">Learn more</a>
         </div>
-      </div>
+      </div> -->
 
       <!-- Third div with three cards -->
-      <div class="card-grid">
+      <!-- <div class="card-grid">
         <div class="card">
           <h3>Custom Workflows</h3>
           <p>
@@ -254,233 +701,142 @@
           </p>
           <a href="#">Learn more</a>
         </div>
-      </div>
-    
-
-    <div class="main-container">
-      <!-- First Div (Heading and Paragraph) -->
-      <div class="header-section">
-        <h1>Discover What Our Company Users Are Saying</h1>
-        <p>
-          Peer into the transformative power of our version control platform as
-          shared by our community of satisfied users, highlighting the
-          exceptional value we bring to the development landscape.
-        </p>
-      </div>
-
-      <!-- Card Section -->
-      <div class="card-section">
-        <!-- First Row -->
-        <div class="card">
-          <img src="images/img/logo-1.png" alt="Pipedrive Logo" />
-          <h3>Pipedrive</h3>
-          <p>
-            Join our satisfied customer base and experience why we hold a
-            stellar average rating of 4.9 stars, reflecting our dedication to
-            exceptional service.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-        <div class="card">
-          <img src="images/img/logo-2.png" alt="Stripe Logo" />
-          <h3>Stripe</h3>
-          <p>
-            Join our satisfied customer base and experience why we hold a
-            stellar average rating of 4.9 stars, reflecting our dedication to
-            exceptional service.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-        <div class="card">
-          <img src="images/img/logo-3.jpeg" alt="Leadpages Logo" />
-          <h3>Leadpages</h3>
-          <p>
-            Join our satisfied customer base and experience why we hold a
-            stellar average rating of 4.9 stars, reflecting our dedication to
-            exceptional service.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-
-        <!-- Second Row -->
-        <div class="card">
-          <img src="images/img/logo-4.jpeg" alt="Coinbase Logo" />
-          <h3>Coinbase</h3>
-          <p>
-            Trust is evident in our 4.7-star average rating, a testament to our
-            commitment to delivering value and reliability.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-        <div class="card">
-          <img src="images/img/logo-5.png" alt="Alibaba Logo" />
-          <h3>Alibaba</h3>
-          <p>
-            Consistently delivering excellence has earned us an average rating
-            of 4.9 stars, reflecting our dedication to quality.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-        <div class="card">
-          <img src="images/img/logo-6.jpeg" alt="Paypal Logo" />
-          <h3>Paypal</h3>
-          <p>
-            User feedback has contributed to our outstanding 4.9-star rating,
-            demonstrating our dedication to exceeding expectations.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-
-        <!-- Third Row -->
-        <div class="card">
-          <img src="images/img/logo-7.png" alt="eBay Logo" />
-          <h3>eBay</h3>
-          <p>
-            Join our satisfied customer base and experience why we hold a
-            stellar average rating of 4.9 stars, reflecting our dedication to
-            exceptional service.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-        <div class="card">
-          <img src="images/img/logo-8.png" alt="Walmart Logo" />
-          <h3>Walmart</h3>
-          <p>
-            Join our satisfied customer base and experience why we hold a
-            stellar average rating of 4.9 stars, reflecting our dedication to
-            exceptional service.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-        <div class="card">
-          <img src="images/img/logo-9.png" alt="Amazon Logo" />
-          <h3>Amazon.com</h3>
-          <p>
-            Join our satisfied customer base and experience why we hold a
-            stellar average rating of 4.9 stars, reflecting our dedication to
-            exceptional service.
-          </p>
-          <div class="rating">★★★★★</div>
-        </div>
-      </div>
+      </div> -->
     </div>
-  </div>
+
+
+    <div class="container">
+      
+    <iframe src="../Array-Archers_023/footer-design/index_footer.html" style="width: 100%; height: 600px; border: none;"></iframe>
+
+
+
+
+    </div>
+ 
+
     <script>
       let loginBtn = document.getElementById("loginBtn");
       let signupBtn = document.getElementById("signupBtn");
 
       loginBtn.addEventListener("click", function (event) {
         event.preventDefault();
-        window.location.href = "./Array-Archers_023/login&sign_up/index.html";
+        window.location.href = "./login&sign_up/index.html";
       });
 
       signupBtn.addEventListener("click", function (event) {
         event.preventDefault();
-        window.location.href = "./Array-Archers_023/login&sign_up/index.html";
+        window.location.href = "./login&sign_up/index.html";
       });
 
 
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.scroll-section');
 
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const sectionHeight = section.offsetHeight;
-        const triggerPoint = window.innerHeight - sectionHeight / 3;
+      window.addEventListener("scroll", () => {
+        const sections = document.querySelectorAll(".scroll-section");
 
-        if (sectionTop < triggerPoint) {
-            section.classList.add('active');
-        } else {
-            section.classList.remove('active');
-        }
-    });
-});
+        sections.forEach((section) => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const sectionHeight = section.offsetHeight;
+          const triggerPoint = window.innerHeight - sectionHeight / 3;
 
-    // Define the data for each department
-const departmentsData = {
-    "company-wide": {
-        image: "https://assets.asana.biz/transform/4ec30921-268a-4ffb-b3f9-9d1061b96872/WEB-PNG-refresh24-ICP-company-4x3-en_us?io=transform:fill,width:1680&format=webp",
-        title: "Operationalize goals",
-        listItems: [
+          if (sectionTop < triggerPoint) {
+            section.classList.add("active");
+          } else {
+            section.classList.remove("active");
+          }
+        });
+      });
+
+      // Define the data for each department
+      const departmentsData = {
+        "company-wide": {
+          image:
+            "https://assets.asana.biz/transform/4ec30921-268a-4ffb-b3f9-9d1061b96872/WEB-PNG-refresh24-ICP-company-4x3-en_us?io=transform:fill,width:1680&format=webp",
+          title: "Operationalize goals",
+          listItems: [
             "✔ Connect work to company goals",
             "✔ Automate workflows across departments",
-            "✔ Report on progress and address bottlenecks"
-        ]
-    },
-    "marketing": {
-        image: "https://assets.asana.biz/transform/9f167e0d-8009-4a3e-ad45-6758393c0631/WEB-PNG-refresh24-ICP-marketing-4x3-en_us?io=transform:fill,width:2560&format=webp",
-        title: "Elevate marketing performance",
-        listItems: [
+            "✔ Report on progress and address bottlenecks",
+          ],
+        },
+        marketing: {
+          image:
+            "https://assets.asana.biz/transform/9f167e0d-8009-4a3e-ad45-6758393c0631/WEB-PNG-refresh24-ICP-marketing-4x3-en_us?io=transform:fill,width:2560&format=webp",
+          title: "Elevate marketing performance",
+          listItems: [
             "✔ Streamline campaign planning",
             "✔ Collaborate with cross-functional teams",
-            "✔ Track performance and optimize results"
-        ]
-    },
-    "operations": {
-        image: "https://assets.asana.biz/transform/fad65933-e5a6-482e-8159-f8685a2dcf26/WEB-PNG-refresh24-ICP-operations-4x3-en_us?io=transform:fill,width:2560&format=webp",
-        title: "Optimize operations",
-        listItems: [
+            "✔ Track performance and optimize results",
+          ],
+        },
+        operations: {
+          image:
+            "https://assets.asana.biz/transform/fad65933-e5a6-482e-8159-f8685a2dcf26/WEB-PNG-refresh24-ICP-operations-4x3-en_us?io=transform:fill,width:2560&format=webp",
+          title: "Optimize operations",
+          listItems: [
             "✔ Ensure smooth operations",
             "✔ Improve efficiency across processes",
-            "✔ Drive continuous improvement"
-        ]
-    },
-    "it": {
-        image: "https://assets.asana.biz/transform/5a3832a0-856d-4aae-8d9c-e290e301630c/WEB-PNG-refresh24-ICP-IT-4x3-en_us?io=transform:fill,width:2560&format=webp",
-        title: "Strengthen IT infrastructure",
-        listItems: [
+            "✔ Drive continuous improvement",
+          ],
+        },
+        it: {
+          image:
+            "https://assets.asana.biz/transform/5a3832a0-856d-4aae-8d9c-e290e301630c/WEB-PNG-refresh24-ICP-IT-4x3-en_us?io=transform:fill,width:2560&format=webp",
+          title: "Strengthen IT infrastructure",
+          listItems: [
             "✔ Implement robust systems",
             "✔ Maintain security and compliance",
-            "✔ Support business growth"
-        ]
-    },
-    "product": {
-        image: "https://assets.asana.biz/transform/504dc1b3-81ca-4f6d-b236-edfc76408f6e/WEB-PNG-refresh24-ICP-product-4x3-en_us?io=transform:fill,width:2560&format=webp",
-        title: "Drive product innovation",
-        listItems: [
+            "✔ Support business growth",
+          ],
+        },
+        product: {
+          image:
+            "https://assets.asana.biz/transform/504dc1b3-81ca-4f6d-b236-edfc76408f6e/WEB-PNG-refresh24-ICP-product-4x3-en_us?io=transform:fill,width:2560&format=webp",
+          title: "Drive product innovation",
+          listItems: [
             "✔ Align product roadmap with strategy",
             "✔ Foster collaboration between teams",
-            "✔ Measure and enhance product success"
-        ]
-    }
-};
+            "✔ Measure and enhance product success",
+          ],
+        },
+      };
 
-function updateDepartmentContent(department) {
-    const deptData = departmentsData[department];
-    
-    console.log("Updating content for department:", department); // Debugging
-    console.log(deptData); // Debugging
+      function updateDepartmentContent(department) {
+        const deptData = departmentsData[department];
 
-    document.getElementById('department-image').src = deptData.image;
-    document.getElementById('department-title').textContent = deptData.title;
+        console.log("Updating content for department:", department); // Debugging
+        console.log(deptData); // Debugging
 
-    const departmentList = document.getElementById('department-list');
-    departmentList.innerHTML = ''; // Clear existing items
+        document.getElementById("department-image").src = deptData.image;
+        document.getElementById("department-title").textContent =
+          deptData.title;
 
-    deptData.listItems.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        departmentList.appendChild(li);
-    });
-}
+        const departmentList = document.getElementById("department-list");
+        departmentList.innerHTML = ""; // Clear existing items
 
+        deptData.listItems.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          departmentList.appendChild(li);
+        });
+      }
 
-// Add event listeners to the buttons
-document.querySelectorAll('.deptBtn').forEach(button => {
-    button.addEventListener('click', (event) => {
-        const department = event.target.getAttribute('data-department');
-        updateDepartmentContent(department);
-    });
-});
+      // Add event listeners to the buttons
+      document.querySelectorAll(".deptBtn").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const department = event.target.getAttribute("data-department");
+          updateDepartmentContent(department);
+        });
+      });
 
+      const hamburgerMenu = document.getElementById("hamburger-menu");
+      const landingPageMenu = document.getElementById("landing-page-menu");
 
-const hamburgerMenu = document.getElementById('hamburger-menu');
-const landingPageMenu = document.getElementById('landing-page-menu');
-
-hamburgerMenu.addEventListener('click', () => {
-    landingPageMenu.classList.toggle('active');
-});
-
+      hamburgerMenu.addEventListener("click", () => {
+        landingPageMenu.classList.toggle("active");
+      });
     </script>
   </body>
+
+  
 </html>
