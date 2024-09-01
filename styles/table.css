@@ -507,7 +507,14 @@
   background-color: rgb(241, 238, 238);
   margin-left: -1rem;
   }
-  
+  .btn1{
+    font-size: var(--h5-font);
+    border-radius: 0.2rem;
+    background-color:#2f92de;
+    font-weight: bold;
+    color: var(--text-color);
+    border: none;
+    }
   
   #search-bar{
   display: none;

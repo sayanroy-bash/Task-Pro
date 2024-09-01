@@ -132,6 +132,15 @@ color: var(--text-color);
 border: none;
 }
 
+.btn1{
+  font-size: var(--h5-font);
+  border-radius: 0.2rem;
+  background-color:#2f92de;
+  font-weight: bold;
+  color: var(--text-color);
+  border: none;
+  }
+
 
 
 #signupBtn{
