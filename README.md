@@ -129,7 +129,9 @@ For the Task Management website, the core technologies utilized are HTML, CSS, a
 
 
 ## Screenshots
-<img src="assets/1.png">
-<img src="assets/2.png">
-<img src="assets/3.png">
+<img src="./login&sign_up/img/landing_page_img.png">
+<img src="./login&sign_up/img/tableview_img.png">
+<img src="./login&sign_up/img/Boardview_img.png">
+<img src="./login&sign_up/img/calendar_page_img.png">
+<img src="./login&sign_up/img/graphview_img.png">
 
