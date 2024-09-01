@@ -1,54 +1,47 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../styles/tableView.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://kit.fontawesome.com/79c3e1b7af.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link rel="stylesheet" href="../styles/table.css">
+
 </head>
 <body>
-
-  <nav>
-
-    <div class="container1">
-      <div class="image">
-        <img src="../images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png" alt="taskpro-Logo" id="logo" />
-    </div>
-    <div id="hamburger-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-  </div>
-
-    <div id="landing-page-menu">
-      <ul>
-          <li class="menu"><a href="#">Home</a></li>
-          <li class="menu"><a href="#">My Tasks</a></li>
-          <li class="menu"><a href="#">Activities</a></li>
-          <li class="menu"><a href="#">About</a></li>
-          <div class="login-signupBtns">
-              <button id="loginBtn" class="btn">Login</button>
-              <button id="signupBtn" class="btn">Signup</button>
+    
+    <div class="containerNav">
+        <nav id="landing-page-navbar">
+          <div id="landing-page-logo">
+            <img
+              src="../images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png"
+              alt="taskpro-Logo"
+              id="logo"/>
           </div>
-          <button id="logoutBtn">Logout</button>
-      </ul>
-  </div>
+          <div id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div id="landing-page-menu">
+            <ul>
+              <li class="menu"><a href="../index.html">Home</a></li>
+              <li class="menu"><a href="#">My Tasks</a></li>
+              <li class="menu"><a href="#">Activities</a></li>
+              <li class="menu"><a href="#">About</a></li>
+              <div class="login-signupBtns">
+                <button id="loginBtn" class="btn">Login</button>
+                <button id="signupBtn" class="btn">Signup</button>
+              </div>
+            </ul>
+          </div>
+        </nav>
+    
+      </div>
 
-
-    </div>
-
-  </nav>
-
- 
-  
-    <div id="container">
+      <div id="container">
         <div id="merged-sidebar-tableview-container">
             <div id="sidebar-container">
                 <div class="logo-user-container">
@@ -59,7 +52,7 @@
                 <input type="text" id="search-bar" placeholder="Search Here...">
                 <div class="list-container">
                     <i class="fa-solid fa-house"></i>
-                    <a href="/Array-Archers_023/index.html" class="content">Home</a>
+                    <a href="../index.html" class="content">Home</a>
                 </div>
                 <div class="list-container">
                     <i class="fa-solid fa-trophy"></i>
@@ -67,7 +60,7 @@
                 </div>
                 <div class="list-container">
                     <i class="fa-solid fa-list-check"></i>
-                    <a href="#" class="content">Tasks</a>
+                    <a href="../html/task.html" class="content">Tasks</a>
                 </div>
                 <div id="view-container">
                     <div class="dropdown">
@@ -80,37 +73,30 @@
                           
                             <span class="material-symbols-outlined">
                               table
-                              </span><a href="./tableView.html">Table View</a>
+                              </span><a href="../html/table.html">Table View</a>
                          
                           
                           
                               <span class="material-symbols-outlined">
                                 space_dashboard
                                 </span>
-                                <a href="#">Board View</a>
+                                <a href="../html/task.html">Board View</a>
                            
                            
                               <span class="material-symbols-outlined">
                                 calendar_month
                                 </span>
-                                <a href="#">Calendar View</a>
+                                <a href="../html/calender.html">Calendar View</a>
                           
                             
                               <span class="material-symbols-outlined">
                                 monitoring
                                 </span>
-                                <a href="#">Graph View</a>
-                          
-                           
-                            
-                            
-
+                                <a href="../html/graph.html">Graph View</a>
                         </div>
                     </div>
                 </div>
             </div>
-            
-
           <dialog id="favDialog">
             <form id="task-form">
               <h1 >CREATE  TASK</h1>
@@ -165,12 +151,12 @@
           </dialog>
             <div id="table-view-container">
                 <div id="merged-create-heading">
-
-                  <h2>Task Management Table</h2>
+<!-- 
+                  <h2>Task Management Table</h2> -->
                   <button id="showDialogBtn"><span class="material-symbols-outlined">
                     add
                     </span>Create Your Task</button>
-                    <div id="hamburger-menu">
+                    <div id="hamburger-menu1">
                       <span></span>
                       <span></span>
                       <span></span>
@@ -200,7 +186,25 @@
                 </table>
             </div>
         </div>
-    </div>
-    <script src="../script/tableView.js"></script>
+  </div>
+
+  <script>
+    let loginBtn = document.getElementById("loginBtn");
+  let signupBtn = document.getElementById("signupBtn");
+
+  loginBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    window.location.href = "../login&sign_up/index.html";
+  });
+
+  signupBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    window.location.href = "../login&sign_up/index.html";
+  });
+
+</script>
+
 </body>
+
+<script src="../script/tableView.js"></script>
 </html>

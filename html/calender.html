@@ -17,42 +17,48 @@
 </head>
 <body>
     
-  <nav>
 
-    <div class="container1">
-      <div class="image">
-        <img src="../images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png" alt="taskpro-Logo" id="logo" />
-    </div>
-    <div id="hamburger-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-  </div>
-
-    <div id="landing-page-menu">
-      <ul>
-          <li class="menu"><a href="#">Home</a></li>
+  <div class="containerNav">
+    <nav id="landing-page-navbar">
+      <div id="landing-page-logo">
+        <img
+          src="../images/Blue_3D_Abstract_Letter_S_Logo-removebg-preview.png"
+          alt="taskpro-Logo"
+          id="logo"/>
+      </div>
+      <div id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="landing-page-menu">
+        <ul>
+          <li class="menu"><a href="../index.html">Home</a></li>
           <li class="menu"><a href="#">My Tasks</a></li>
           <li class="menu"><a href="#">Activities</a></li>
           <li class="menu"><a href="#">About</a></li>
           <div class="login-signupBtns">
-              <button id="loginBtn" class="btn">Login</button>
-              <button id="signupBtn" class="btn">Signup</button>
+            <button id="loginBtn" class="btn">Login</button>
+            <button id="signupBtn" class="btn">Signup</button>
           </div>
-      </ul>
+        </ul>
+      </div>
+    </nav>
+
   </div>
 
 
-    </div>
-
-  </nav>
-
     <main>
       <div id="sidebar-container">
-
+        <div class="logo-user-container">
+            <p style="margin-top:1rem;padding-left:1rem">TaskPro</p>
+            
+            <i class="fa-solid fa-user" id="user"></i>
+        </div>
+        <input type="text" id="search-bar" placeholder="Search Here...">
         <div class="list-container">
             <i class="fa-solid fa-house"></i>
-            <a href="/Array-Archers_023/index.html" class="content">Home</a>
+            <a href="../index.html" class="content">Home</a>
         </div>
         <div class="list-container">
             <i class="fa-solid fa-trophy"></i>
@@ -60,7 +66,7 @@
         </div>
         <div class="list-container">
             <i class="fa-solid fa-list-check"></i>
-            <a href="#" class="content">Tasks</a>
+            <a href="../html/task.html" class="content">Tasks</a>
         </div>
         <div id="view-container">
             <div class="dropdown">
@@ -69,10 +75,30 @@
                 </span>
                 <button class="dropbtn">Views</button>
                 <div class="dropdown-content">
-                    <a href="./tableView.html">Table View</a>
-                    <a href="./task.html">Board View</a>
-                    <a href="./calender.html">Calendar View</a>
-                    <a href="./graph.html">Graph View</a>
+
+                  
+                    <span class="material-symbols-outlined">
+                      table
+                      </span><a href="../html/table.html">Table View</a>
+                 
+                  
+                  
+                      <span class="material-symbols-outlined">
+                        space_dashboard
+                        </span>
+                        <a href="../html/task.html">Board View</a>
+                   
+                   
+                      <span class="material-symbols-outlined">
+                        calendar_month
+                        </span>
+                        <a href="../html/calender.html">Calendar View</a>
+                  
+                    
+                      <span class="material-symbols-outlined">
+                        monitoring
+                        </span>
+                        <a href="../html/graph.html">Graph View</a>
                 </div>
             </div>
         </div>
@@ -119,6 +145,24 @@
           </div>
       
     </main>
+
+
+    <script>
+        let loginBtn = document.getElementById("loginBtn");
+      let signupBtn = document.getElementById("signupBtn");
+
+      loginBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "../login&sign_up/index.html";
+      });
+
+      signupBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "../login&sign_up/index.html";
+      });
+
+    </script>
 </body>
+
 <script src="../script/calender.js"></script>
 </html>

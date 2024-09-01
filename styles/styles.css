@@ -28,10 +28,6 @@
   margin: auto;
 }
 
-#logo{
-  width: 7rem;
-  height:7rem;
-}
 
 #landing-page-navbar {
   display: flex;
@@ -44,6 +40,12 @@
   height: 5rem;
   background-color: #fff; 
   
+}
+
+
+#logo{
+  width: 7rem;
+  height:7rem;
 }
 
 #landing-page-menu{

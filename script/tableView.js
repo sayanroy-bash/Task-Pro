@@ -17,7 +17,7 @@ if (!userId) {
     window.alert("User not logged in. Please log in first.");
     window.location.href = "../login&sign_up/index.html";
 }
-document.querySelector(".login-signupBtns").style.display="None";
+document.querySelector(".login-signupBtns");
 document.addEventListener("DOMContentLoaded", () => {
     if (userId) {
         fetchTasks();
