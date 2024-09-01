@@ -38,7 +38,14 @@ const requestOptions = {
 
 fetch("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBe_6IW2Y0TdrTtA4WvpVyaMlxl5EuRKO8", requestOptions)
   .then((response) => response.json())
-  .then((result) => console.log(result))
+  .then((result) => {
+    if(result.error){
+      alert(`${result.error.message}`);
+    }else{
+      alert(`Sign up successfull`);
+      container.classList.remove("sign-up-mode");
+    }
+  })
   .catch((error) => console.error(error));
 }
 
@@ -70,8 +77,12 @@ const requestOptions = {
 fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBe_6IW2Y0TdrTtA4WvpVyaMlxl5EuRKO8", requestOptions)
   .then((response) => response.json())
   .then((result) => {
-    localStorage.setItem("authToken",result.idToken);
-    console.log(result.idToken);
+          if(result.error){
+            alert(`${result.error.message}`)
+          }else{
+            localStorage.setItem("authToken",result.idToken);
+            window.location.href="../html/task.html";
+          }
   })
   .catch((error) => console.error(error));
 }

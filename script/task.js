@@ -1,23 +1,4 @@
 
-// -----------navbar js--------
-// function toggleMenu() {
-//     const navbar = document.querySelector('.navbar');
-//     navbar.classList.toggle('open');
-// }
-// function indexPage(){
-//     window.location.href = "/index.html";
-// }
-// function loginPage(){
-//     window.location.href = "/htmls/login_signup.html";
-// }
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-});
-function signupPage(){
-    window.location.href = "/htmls/login_signup.html";
-}
-
 // ---------------task LockManager.js----
 const taskForm = document.getElementById('task-form');
 const generateDataBtn = document.getElementById('generate-data');
@@ -35,24 +16,19 @@ let task;
 
 if (!userId) {
     window.alert("User not logged in. Please log in first.");
-    window.location.href = "login.html";
+    window.location.href = "../login&sign_up/index.html";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     if (userId) {
         fetchTasks();
         setupDragAndDrop();
+    }else{
+        window.alert("User not logged in. Please log in first.");
+    window.location.href = "../login&sign_up/index.html";
     }
 });
 
-generateDataBtn.addEventListener('click', () => {
-    const days = prompt("Enter the number of days (10-100):");
-    if (days >= 10 && days <= 100) {
-        generateRandomTasks(days);
-    } else {
-        alert("Please enter a valid number of days between 10 and 100.");
-    }
-});
 
 const fetchTasks = async () => {
     try {
@@ -77,29 +53,6 @@ const fetchTasks = async () => {
     }
 };
 
-const generateRandomTasks = async (days) => {
-    const statusOptions = ['pending', 'inProgress', 'completed'];
-    const urgencyOptions = ['high', 'medium', 'low'];
-    const importanceOptions = ['high', 'medium', 'low'];
-
-    for (let i = 0; i < days; i++) {
-        const numTasks = Math.floor(Math.random() * 5) + 1;
-        for (let j = 0; j < numTasks; j++) {
-            const task = {
-                name: `Task ${i + 1}-${j + 1}`,
-                description: `Description for task ${i + 1}-${j + 1}`,
-                dueDate: new Date(Date.now() + i * 86400000).toISOString().split('T')[0],
-                importance: importanceOptions[Math.floor(Math.random() * importanceOptions.length)],
-                urgency: urgencyOptions[Math.floor(Math.random() * urgencyOptions.length)],
-                status: statusOptions[Math.floor(Math.random() * statusOptions.length)],
-                priority: calculatePriority(importance, urgency)
-            };
-            tasks.push(task);
-        }
-    }
-    await updateTasks();
-    fetchTasks();
-};
 
 const updateTasks = async () => {
     try {

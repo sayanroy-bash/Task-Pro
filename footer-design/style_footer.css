@@ -31,7 +31,7 @@ body {
 
 body .footer {
     z-index: 1;
-    --footer-background: rgb(255, 73, 73);
+    --footer-background: #071952;
     display: grid;
     position: relative;
     grid-area: footer;
@@ -566,7 +566,7 @@ body .footer .content {
 
 .footer__copy {
     text-align: center;
-    background: rgb(91, 73, 255);
+    background: #071952;
     font-size: .875rem;
     text-align: center;
     color: #dcdcdc;
