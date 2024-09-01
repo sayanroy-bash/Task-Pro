@@ -127,7 +127,15 @@
   }
   
   
-  
+  .btn1{
+    font-size: 17px;
+  border-radius: 0.2rem;
+  background-color:#2f92de;
+  font-weight: bold;
+  color: var(--text-color);
+  border: none;
+    padding: 10px 15px;
+  }
   
   
   .btn{
@@ -158,14 +166,19 @@
   color: white;
   }
   
+  #signupBtn:hover, .btn1:hover{
+    background-color: rgb(59, 126, 209);
+    color: white;
+    }
   
 
 
+
   #container{
-    width:1520px;
+    width:1536px;
     height:auto;
     margin: 0 auto;
-    border: 1px solid black;
+    
   }
   
   #sidebar-container{
@@ -507,15 +520,7 @@
   background-color: rgb(241, 238, 238);
   margin-left: -1rem;
   }
-  .btn1{
-    font-size: var(--h5-font);
-    border-radius: 0.2rem;
-    background-color:#2f92de;
-    font-weight: bold;
-    color: var(--text-color);
-    border: none;
-    }
-  
+
   #search-bar{
   display: none;
   }
