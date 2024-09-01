@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task Status Bar Graph</title>
+    <title>Taskpro</title>
+    <link rel="website icon" type="png" href="../login&sign_up/img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -38,6 +39,7 @@
               <div class="login-signupBtns">
                   <button id="loginBtn" class="btn">Login</button>
                   <button id="signupBtn" class="btn">Signup</button>
+                  <button id="logout" style="display: none;">Logout</button>
               </div>
           </ul>
       </div>
@@ -146,9 +148,11 @@ let done; // Value for 'done'
 
 if (!userId) {
   window.alert("User not logged in. Please log in first.");
-  window.location.href = "login.html";
+  window.location.href = "../login&sign_up/index.html";
 }
-
+document.querySelector("#logout").style.display="block";
+document.querySelector("#loginBtn").style.display="none";
+document.querySelector("#signupBtn").style.display="none";
 document.addEventListener("DOMContentLoaded", () => {
   if (userId) {
     fetchTasks();
@@ -227,6 +231,11 @@ let loginBtn = document.getElementById("loginBtn");
         window.location.href = "../login&sign_up/index.html";
       });
 
+
+      document.querySelector("#logout").addEventListener("click",()=>{
+    localStorage.removeItem("authToken");
+    window.location.href="../login&sign_up/index.html"
+  })
 
     </script>
   </body>

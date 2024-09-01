@@ -18,7 +18,9 @@ if (!userId) {
     window.alert("User not logged in. Please log in first.");
     window.location.href = "../login&sign_up/index.html";
 }
-
+document.querySelector("#logout").style.display="block";
+document.querySelector("#loginBtn").style.display="none";
+document.querySelector("#signupBtn").style.display="none";
 document.addEventListener('DOMContentLoaded', () => {
     if (userId) {
         fetchTasks();
@@ -43,7 +45,7 @@ const fetchTasks = async () => {
             data=Object.values(user);
         taskID=Object.keys(user);
         tasks=data.filter((ele)=>{
-            return ele.authToken===userId;
+            return ele.authToken==userId;
         })
         renderTaskList();
         }
@@ -294,3 +296,8 @@ showDialogBtn.addEventListener('click', () => favDialog.showModal());
 closeSubmit.addEventListener("click", () => {
     favDialog.close();
   });
+
+  document.querySelector("#logout").addEventListener("click",()=>{
+    localStorage.removeItem("authToken");
+    window.location.href="../login&sign_up/index.html"
+  })

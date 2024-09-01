@@ -80,7 +80,7 @@ fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key
           if(result.error){
             alert(`${result.error.message}`)
           }else{
-            localStorage.setItem("authToken",result.idToken);
+            localStorage.setItem("authToken",result.email);
             window.location.href="../html/task.html";
           }
   })

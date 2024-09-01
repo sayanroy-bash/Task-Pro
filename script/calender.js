@@ -14,9 +14,11 @@ let task;
 
 if (!userId) {
   window.alert("User not logged in. Please log in first.");
-  window.location.href = "login.html";
+  window.location.href = "../login&sign_up/index.html";
 }
-
+document.querySelector("#logout").style.display="block";
+document.querySelector("#loginBtn").style.display="none";
+document.querySelector("#signupBtn").style.display="none";
 document.addEventListener("DOMContentLoaded", () => {
   if (userId) {
       fetchTasks();
@@ -113,39 +115,38 @@ const renderCalendar = () => {
   const dueTasks = tasks.filter(task => {
     const taskDueDate = new Date(task.dueDate);
     return taskDueDate.getMonth() === currentMonth;
-});
+  });
   month.innerHTML = `${months[currentMonth]} ${currentYear}`;
-
   let days = "";
-
+  // Previous month's days
   for (let x = firstDay.getDay(); x > 0; x--) {
     days += `<div class="day prev">${prevLastDayDate - x + 1}</div>`;
   }
-
+  // Current month's days
   for (let i = 1; i <= lastDayDate; i++) {
-    let res=dueTasks.filter((ele)=>{
-      return new Date(ele.dueDate).getDate()===i;
-    })
-    if (
+    let res = dueTasks.filter((ele) => {
+      return new Date(ele.dueDate).getDate() === i;
+    });
+    // Check if it's today
+    const isToday =
       i === new Date().getDate() &&
       currentMonth === new Date().getMonth() &&
-      currentYear === new Date().getFullYear()
-    ) {
-      days += `<div class="day today">${i}
-        </div>`;
-    }if(res.length>0){
-      res.forEach((ele)=>{
-        days += `<div class="tasks"><p>${ele.name}</p><p>${i}</p></div>`;
-      })
-    } else {
-      days += `<div class="day">${i}</div>`;
+      currentYear === new Date().getFullYear();
+    // Construct the day element
+    let dayElement = `<div class="day${isToday ? ' today' : ''}">${i}`;
+    // Append tasks if any
+    if (res.length > 0) {
+      res.forEach((ele) => {
+        dayElement += `<div class="task"><p>${ele.name}</p></div>`;
+      });
     }
+    dayElement += `</div>`; // Close the day div
+    days += dayElement;
   }
-
+  // Next month's days
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="day next">${j}</div>`;
   }
-
   daysContainer.innerHTML = days;
   hideTodayBtn();
 };
@@ -186,3 +187,7 @@ function hideTodayBtn() {
 }
 
 
+document.querySelector("#logout").addEventListener("click",()=>{
+  localStorage.removeItem("authToken");
+  window.location.href="../login&sign_up/index.html"
+})
