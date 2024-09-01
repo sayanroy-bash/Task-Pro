@@ -1,4 +1,4 @@
-# Algorithm Visualizer
+# Task Manager
 
 ## Introduction
 The Task Management Website is a user-friendly platform designed to help individuals and teams organize, manage, and track their tasks efficiently. The application allows users to create, assign, and monitor tasks, ensuring better productivity and project management.
